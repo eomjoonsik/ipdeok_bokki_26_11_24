@@ -335,7 +335,7 @@ main {
     width: 100%;
     aspect-ratio: 280 / 225;
     background-color: #D9D9D9;
-    background-image: url("../img/event1.jpg");
+    background-image: url("../img/event1.png");
     background-size: cover;
     background-position: center;
 }
@@ -502,4 +502,11 @@ main {
 
 body:has(.menu-toggle:checked) {
     overflow: hidden;
+}
+
+.hero-img,
+.recommend-img,
+.menu-img,
+.event-img {
+    background-color: transparent;
 }

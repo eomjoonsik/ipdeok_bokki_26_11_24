@@ -1,12 +1,144 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>입덕볶이 | 주문 완료</title>
+    <link rel="stylesheet" href="../../CSS/style.css">
     <link rel="stylesheet" href="CSS/payment_finish.css">
 </head>
 <body>
-    
+
+    <div class="wrap">
+
+        <header class="header">
+            <a href="../../index.html" class="logo">
+                <img src="../../img/logo.png" alt="입덕볶이">
+            </a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+            <label for="menu-toggle" class="menu-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 6h16"/>
+                    <path d="M4 12h16"/>
+                    <path d="M4 18h16"/>
+                </svg>
+            </label>
+
+            <label for="menu-toggle" class="menu-overlay"></label>
+
+            <nav class="side-menu">
+                <div class="side-menu-header">
+                    <h2>메뉴</h2>
+
+                    <label for="menu-toggle" class="close-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m18 6-12 12"/>
+                            <path d="m6 6 12 12"/>
+                        </svg>
+                    </label>
+                </div>
+
+                <ul class="side-menu-list">
+                    <li><a href="../../index.html">메인페이지</a></li>
+                    <li><a href="../lists/lists.html">리스트페이지</a></li>
+                    <li><a href="../detail/detail.html">상세페이지</a></li>
+                    <li><a href="../payment/payment.html">결제페이지</a></li>
+                    <li><a href="payment_finish.html">결제완료</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="finish-main">
+
+            <div class="finish-content">
+
+                <h1 class="finish-title">주문 완료!</h1>
+
+                <div class="finish-icon">
+                    <svg width="132" height="132" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="1.3"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <path d="m9 11 3 3L22 4"/>
+                    </svg>
+                </div>
+
+                <div class="finish-description">
+                    <p>주문 번호 485684834729</p>
+                    <p>매장에서 주문을 확인중이에요</p>
+                </div>
+
+            </div>
+
+            <section class="delivery-time">
+
+                <div class="delivery-time-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+
+                    <span>예상 배달 소요 시간</span>
+                </div>
+
+                <strong>40~50분</strong>
+
+                <p>매장 상황에 따라 달라질 수 있어요.</p>
+
+            </section>
+
+            <section class="delivery-info">
+
+                <div class="delivery-info-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+
+                    <h2>배달 주소</h2>
+                </div>
+
+                <div class="delivery-address">
+                    <p>서울특별시 ○○구 ○○로 123</p>
+                    <p>101동 1004호</p>
+                </div>
+
+                <div class="delivery-divider"></div>
+
+                <div class="delivery-info-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/>
+                    </svg>
+
+                    <h2>배달 요청사항</h2>
+                </div>
+
+                <p class="delivery-request">
+                    문 앞에 놓아주세요.
+                </p>
+
+            </section>
+
+            <a href="../../index.html" class="home-btn">
+                홈으로 돌아가기
+            </a>
+
+        </main>
+
+    </div>
+
 </body>
 </html>

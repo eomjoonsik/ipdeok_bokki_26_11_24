@@ -1,12 +1,231 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>입덕볶이 | 결제</title>
+    <link rel="stylesheet" href="../../CSS/style.css">
     <link rel="stylesheet" href="CSS/payment.css">
 </head>
 <body>
-    
+
+    <div class="wrap">
+
+        <header class="header">
+
+            <a href="../../index.html" class="logo">
+                <img src="../../img/logo.png" alt="입덕볶이">
+            </a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+            <label for="menu-toggle" class="menu-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 6h16"/>
+                    <path d="M4 12h16"/>
+                    <path d="M4 18h16"/>
+                </svg>
+            </label>
+
+            <label for="menu-toggle" class="menu-overlay"></label>
+
+            <nav class="side-menu">
+
+                <div class="side-menu-header">
+                    <h2>메뉴</h2>
+
+                    <label for="menu-toggle" class="close-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m18 6-12 12"/>
+                            <path d="m6 6 12 12"/>
+                        </svg>
+                    </label>
+                </div>
+
+                <ul class="side-menu-list">
+                    <li><a href="../../index.html">메인페이지</a></li>
+                    <li><a href="../lists/lists.html">리스트페이지</a></li>
+                    <li><a href="../detail/detail.html">상세페이지</a></li>
+                    <li><a href="payment.html">결제페이지</a></li>
+                    <li><a href="../payment_finish/payment_finish.html">결제완료</a></li>
+                </ul>
+
+            </nav>
+
+        </header>
+
+        <main class="payment-main">
+
+            <section class="payment-section">
+
+                <h2 class="payment-title">결제 상품</h2>
+
+                <div class="payment-products"></div>
+
+            </section>
+
+            <section class="payment-section coupon-section">
+
+                <h2 class="payment-title">
+                    쿠폰
+                    <svg width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="4"/>
+                        <path d="m7 10 5 5 5-5"/>
+                    </svg>
+                </h2>
+
+                <div class="coupon-list">
+
+                    <div class="coupon-card">
+
+                        <div class="coupon-img coupon1"></div>
+
+                        <div class="coupon-info">
+                            <h3>가입 이벤트</h3>
+                            <p>20,000원 이상 구매 시 5,000원 할인</p>
+                            <p>가입일로부터 30일 이내</p>
+                            <span>중복 사용 불가능</span>
+                        </div>
+
+                    </div>
+
+                    <div class="coupon-card">
+
+                        <div class="coupon-img coupon2"></div>
+
+                        <div class="coupon-info">
+                            <h3>배달비 무료</h3>
+                            <p>50,000원 이상 구매 시 배달비 무료</p>
+                            <p>2027.01.20 까지</p>
+                            <span>중복 사용 불가능</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="payment-section method-section">
+
+                <h2 class="payment-title">결제 수단</h2>
+
+                <div class="payment-options">
+
+                    <label class="payment-option">
+                        <input type="radio" name="payment-method">
+                        <span>입덕페이</span>
+                    </label>
+
+                    <div class="option-divider"></div>
+
+                    <label class="payment-option">
+                        <input type="radio" name="payment-method" checked>
+                        <span>일반 결제</span>
+                    </label>
+
+                </div>
+
+                <div class="method-grid">
+
+                    <button class="method-btn">
+                        <span class="method-img method1"></span>
+                        신용카드
+                    </button>
+
+                    <button class="method-btn">
+                        <span class="method-img method2"></span>
+                        카카오페이
+                    </button>
+
+                    <button class="method-btn">
+                        <span class="method-img method3"></span>
+                        네이버페이
+                    </button>
+
+                    <button class="method-btn">
+                        <span class="method-img method4"></span>
+                        토스페이
+                    </button>
+
+                    <button class="method-btn">
+                        <span class="method-img method5"></span>
+                        휴대폰 결제
+                    </button>
+
+                    <button class="method-btn">
+                        <span class="method-img method6"></span>
+                        계좌이체
+                    </button>
+
+                </div>
+
+            </section>
+
+            <section class="payment-section total-section">
+
+                <h2 class="payment-title">총 금액</h2>
+
+                <div class="total-info">
+
+                    <div class="total-row">
+                        <span>메뉴 금액</span>
+                        <strong id="menu-total">0원</strong>
+                    </div>
+
+                    <div class="total-row">
+                        <span>배달비</span>
+                        <strong id="delivery-fee">3,000원</strong>
+                    </div>
+
+                    <div class="total-row">
+                        <span>쿠폰 할인</span>
+                        <strong id="coupon-discount">0원</strong>
+                    </div>
+
+                    <div class="total-divider"></div>
+
+                </div>
+
+                <div class="final-total">
+                    <span>총 금액</span>
+                    <strong id="final-price">0원</strong>
+                </div>
+
+                <a href="../payment_finish/payment_finish.html"
+                    class="final-order-btn">
+                    주문하기
+                </a>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <div class="cancel-overlay" id="cancel-popup">
+
+        <div class="cancel-popup">
+
+            <p>상품을 취소하겠습니까?</p>
+
+            <div class="cancel-buttons">
+                <button id="cancel-yes">예</button>
+                <button id="cancel-no">아니오</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="JS/payment.js"></script>
+
 </body>
 </html>

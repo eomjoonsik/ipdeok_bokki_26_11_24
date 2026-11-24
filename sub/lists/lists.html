@@ -1,12 +1,229 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="CSS/list.css">
+    <title>입덕볶이 | 메뉴</title>
+    <link rel="stylesheet" href="../../CSS/style.css">
+    <link rel="stylesheet" href="CSS/lists.css">
 </head>
 <body>
-    리스트페이지
+
+    <div class="wrap">
+
+        <header class="header">
+            <a href="../../index.html" class="logo">
+                <img src="../../img/logo.png" alt="입덕볶이">
+            </a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+            <label for="menu-toggle" class="menu-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 6h16"/>
+                    <path d="M4 12h16"/>
+                    <path d="M4 18h16"/>
+                </svg>
+            </label>
+
+            <label for="menu-toggle" class="menu-overlay"></label>
+
+            <nav class="side-menu">
+                <div class="side-menu-header">
+                    <h2>메뉴</h2>
+
+                    <label for="menu-toggle" class="close-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m18 6-12 12"/>
+                            <path d="m6 6 12 12"/>
+                        </svg>
+                    </label>
+                </div>
+
+                <ul class="side-menu-list">
+                    <li><a href="../../index.html">메인페이지</a></li>
+                    <li><a href="lists.html">리스트페이지</a></li>
+                    <li><a href="../detail/detail.html">상세페이지</a></li>
+                    <li><a href="../payment/payment.html">결제페이지</a></li>
+                    <li><a href="../payment_finish/payment_finish.html">결제완료</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="lists-main">
+
+            <div class="category-wrap">
+                <button class="category-btn active">떡볶이</button>
+                <button class="category-btn">세트메뉴</button>
+                <button class="category-btn">사이드</button>
+            </div>
+
+            <div class="address-box">
+
+                <div class="address-text">
+                    <svg width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+
+                    <span>기본배달지를 등록해 주세요</span>
+                </div>
+
+                <button class="address-btn">
+                    <svg width="14" height="14" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="8"/>
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 1v3M12 20v3M1 12h3M20 12h3"/>
+                    </svg>
+                    등록
+                </button>
+
+            </div>
+
+            <section class="menu-banner">
+                <p class="banner-caption">오늘도 맛있게 입덕 중!</p>
+                <h2>어떤 떡볶이에 입덕할래?</h2>
+                <p class="banner-description">취향에 맞는 떡볶이를 골라보세요.</p>
+            </section>
+
+            <div class="list-heading">
+                <h2>떡볶이 메뉴</h2>
+                <span>총 6개 메뉴</span>
+            </div>
+
+            <div class="product-grid">
+
+                <a href="../detail/detail.html?id=1" class="product-item">
+
+                    <div class="product-img list-img1">
+                        <span class="product-badge best">BEST</span>
+                    </div>
+
+                    <h3>오리지널 떡볶이</h3>
+                    <p class="product-description">매콤달콤한 시그니처</p>
+
+                    <div class="price-row">
+                        <span class="portion">1인분</span>
+                        <span class="price">9,000원</span>
+                    </div>
+
+                    <div class="price-row">
+                        <span class="portion">2인분</span>
+                        <span class="price">14,000원</span>
+                    </div>
+
+                </a>
+
+                <a href="../detail/detail.html?id=2" class="product-item">
+
+                    <div class="product-img list-img2">
+                        <span class="product-badge new">NEW</span>
+                    </div>
+
+                    <h3>로제 떡볶이</h3>
+                    <p class="product-description">부드럽고 꾸덕한 로제</p>
+
+                    <div class="price-row">
+                        <span class="portion">1인분</span>
+                        <span class="price">11,000원</span>
+                    </div>
+
+                    <div class="price-row">
+                        <span class="portion">2인분</span>
+                        <span class="price">16,000원</span>
+                    </div>
+
+                </a>
+
+                <a href="../detail/detail.html?id=3" class="product-item">
+
+                    <div class="product-img list-img3"></div>
+
+                    <h3>마라 떡볶이</h3>
+                    <p class="product-description">얼얼하고 중독적인 맛</p>
+
+                    <div class="price-row">
+                        <span class="portion">1인분</span>
+                        <span class="price">12,000원</span>
+                    </div>
+
+                    <div class="price-row">
+                        <span class="portion">2인분</span>
+                        <span class="price">17,000원</span>
+                    </div>
+
+                </a>
+
+                <a href="../detail/detail.html?id=4" class="product-item">
+
+                    <div class="product-img list-img4"></div>
+
+                    <h3>짜장 떡볶이</h3>
+                    <p class="product-description">달콤하고 고소한 짜장</p>
+
+                    <div class="price-row">
+                        <span class="portion">1인분</span>
+                        <span class="price">9,000원</span>
+                    </div>
+
+                    <div class="price-row">
+                        <span class="portion">2인분</span>
+                        <span class="price">14,000원</span>
+                    </div>
+
+                </a>
+
+                <a href="../detail/detail.html?id=5" class="product-item">
+
+                    <div class="product-img list-img5"></div>
+
+                    <h3>크림 떡볶이</h3>
+                    <p class="product-description">고소하고 부드러운 크림</p>
+
+                    <div class="price-row">
+                        <span class="portion">1인분</span>
+                        <span class="price">11,000원</span>
+                    </div>
+
+                    <div class="price-row">
+                        <span class="portion">2인분</span>
+                        <span class="price">16,000원</span>
+                    </div>
+
+                </a>
+
+                <a href="../detail/detail.html?id=6" class="product-item">
+
+                    <div class="product-img list-img6"></div>
+
+                    <h3>치즈 떡볶이</h3>
+                    <p class="product-description">쭉 늘어나는 풍부한 치즈</p>
+
+                    <div class="price-row">
+                        <span class="portion">1인분</span>
+                        <span class="price">10,000원</span>
+                    </div>
+
+                    <div class="price-row">
+                        <span class="portion">2인분</span>
+                        <span class="price">15,000원</span>
+                    </div>
+
+                </a>
+
+            </div>
+
+        </main>
+
+    </div>
+
 </body>
 </html>
