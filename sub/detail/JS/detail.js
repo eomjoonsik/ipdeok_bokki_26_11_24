@@ -1,174 +1,355 @@
-
 const products = {
-    1: {
+
+    list1: {
         name: "오리지널 떡볶이",
-        description: "입덕볶이의 시그니처 메뉴,\n매콤달콤한 중독적인 맛!",
-        price: 14000,
-        image: "../lists/img/list1.png",
-        paymentImage: "product1",
+        price: 9000,
+        large: 14000,
+        category: "떡볶이",
+        description: "입덕볶이의 시그니처!\n매콤달콤한 정석의 맛.",
+        color: "#FFBC85",
         badge: "BEST MENU"
     },
 
-    2: {
+    list2: {
         name: "로제 떡볶이",
-        description: "부드러운 크림과 매콤한 소스의 만남,\n꾸덕하고 고소한 로제 떡볶이!",
-        price: 16000,
-        image: "../lists/img/list2.png",
-        paymentImage: "product2",
-        badge: "NEW MENU"
+        price: 11000,
+        large: 16000,
+        category: "떡볶이",
+        description: "부드러운 크림과 매콤한 소스의 만남.",
+        color: "#FFB2C1",
+        badge: "POPULAR MENU"
     },
 
-    3: {
+    list3: {
         name: "마라 떡볶이",
-        description: "얼얼한 마라와 쫄깃한 떡의 조합,\n한 번 먹으면 멈출 수 없는 맛!",
-        price: 17000,
-        image: "../lists/img/list3.png",
-        paymentImage: "product3",
-        badge: "IPDEOK MENU"
+        price: 12000,
+        large: 17000,
+        category: "떡볶이",
+        description: "한 번 빠지면 헤어 나올 수 없는 얼얼한 맛!",
+        color: "#D99780"
     },
 
-    4: {
+    list4: {
         name: "짜장 떡볶이",
-        description: "달콤하고 고소한 짜장 소스,\n부담 없이 즐기는 맛있는 떡볶이!",
-        price: 14000,
-        image: "../lists/img/list4.png",
-        paymentImage: "product4",
-        badge: "IPDEOK MENU"
+        price: 9000,
+        large: 14000,
+        category: "떡볶이",
+        description: "달콤하고 고소한 짜장 소스.",
+        color: "#E7C79D"
     },
 
-    5: {
+    list5: {
         name: "크림 떡볶이",
-        description: "진하고 부드러운 크림 소스,\n고소한 풍미가 가득한 떡볶이!",
-        price: 16000,
-        image: "../lists/img/list5.png",
-        paymentImage: "product5",
-        badge: "IPDEOK MENU"
+        price: 11000,
+        large: 16000,
+        category: "떡볶이",
+        description: "부드럽고 진한 크림의 풍미.",
+        color: "#F5DDB0"
     },
 
-    6: {
+    list6: {
         name: "치즈 떡볶이",
-        description: "쭉 늘어나는 풍부한 치즈,\n매콤함과 고소함을 한 번에!",
-        price: 15000,
-        image: "../lists/img/list6.png",
-        paymentImage: "product6",
-        badge: "IPDEOK MENU"
+        price: 10000,
+        large: 15000,
+        category: "떡볶이",
+        description: "쭉 늘어나는 치즈와 매콤달콤한 소스.",
+        color: "#FFD45C"
+    },
+
+    set1: {
+        name: "근본 세트",
+        price: 18000,
+        category: "세트메뉴",
+        description: "돌고 돌아 결국 근본!\n오리지널 떡볶이 2인분 + 김말이 + 튀김만두",
+        color: "#EA4028",
+        badge: "TYPE A / ORIGINAL"
+    },
+
+    set2: {
+        name: "말랑 세트",
+        price: 22000,
+        category: "세트메뉴",
+        description: "귀여운 게 세상을 구한다!\n로제 떡볶이 2인분 + 치즈볼 + 감자튀김",
+        color: "#FFB2C1",
+        badge: "TYPE B / SOFT"
+    },
+
+    set3: {
+        name: "얼얼 세트",
+        price: 23000,
+        category: "세트메뉴",
+        description: "강렬할수록 빠져드는 나의 취향!\n마라 떡볶이 2인분 + 중국당면 + 순살치킨",
+        color: "#762E28",
+        badge: "TYPE C / SPICY"
+    },
+
+    set4: {
+        name: "단짠 세트",
+        price: 19500,
+        category: "세트메뉴",
+        description: "반전 매력에 약한 편입니다.\n치즈 떡볶이 2인분 + 설탕 듬뿍 핫도그 + 주먹밥",
+        color: "#FFD45C",
+        badge: "TYPE D / SWEET"
+    },
+
+    side1: {
+        name: "김말이",
+        price: 3000,
+        category: "사이드",
+        description: "겉은 바삭하고 속은 촉촉한 김말이."
+    },
+
+    side2: {
+        name: "튀김만두",
+        price: 3000,
+        category: "사이드",
+        description: "떡볶이 소스에 찍어 먹으면 더 맛있는 만두."
+    },
+
+    side3: {
+        name: "치즈볼",
+        price: 4000,
+        category: "사이드",
+        description: "한입 베어 물면 쭉 늘어나는 치즈!"
+    },
+
+    side4: {
+        name: "감자튀김",
+        price: 4000,
+        category: "사이드",
+        description: "바삭하고 짭짤한 감자튀김."
+    },
+
+    side5: {
+        name: "순살치킨",
+        price: 6000,
+        category: "사이드",
+        description: "한입에 쏙 들어가는 맛있는 순살치킨."
+    },
+
+    side6: {
+        name: "설탕 듬뿍 핫도그",
+        price: 3000,
+        category: "사이드",
+        description: "달콤한 설탕과 바삭한 핫도그의 조합."
+    },
+
+    side7: {
+        name: "주먹밥",
+        price: 3500,
+        category: "사이드",
+        description: "매콤한 떡볶이와 잘 어울리는 고소한 주먹밥."
+    },
+
+    side8: {
+        name: "모둠튀김",
+        price: 5000,
+        category: "사이드",
+        description: "다양한 튀김을 한 번에 즐겨보세요."
+    },
+
+    side9: {
+        name: "중국당면",
+        price: 2000,
+        category: "사이드",
+        description: "쫄깃하고 넓적한 중국당면."
     }
 };
 
-const params = new URLSearchParams(window.location.search);
-const productId = params.get("id") || "1";
+const $ = id => document.getElementById(id);
 
-const selectedProduct = Object.hasOwn(products, productId)
-    ? products[productId]
-    : products[1];
+const money = price =>
+    price.toLocaleString("ko-KR") + "원";
 
-const basePrice = selectedProduct.price;
+const params = new URLSearchParams(location.search);
+
+let productId = params.get("id") || "list1";
+
+if (/^[1-6]$/.test(productId)) {
+    productId = "list" + productId;
+}
+
+if (!Object.hasOwn(products, productId)) {
+    productId = "list1";
+}
+
+const product = products[productId];
+
+const isTteokbokki = product.category === "떡볶이";
+const isSide = product.category === "사이드";
 
 let quantity = 1;
 
-const minus = document.querySelector("#minus");
-const plus = document.querySelector("#plus");
-const quantityText = document.querySelector("#quantity");
-const totalPrice = document.querySelector("#total-price");
-const toppings = document.querySelectorAll(".topping");
-const orderButton = document.querySelector(".detail-order-btn");
+function getCart() {
+    try {
+        const cart = JSON.parse(
+            localStorage.getItem("ipdeokCart") || "[]"
+        );
 
-document.querySelector("#product-name").textContent =
-    selectedProduct.name;
+        return Array.isArray(cart) ? cart : [];
 
-document.querySelector("#product-description").textContent =
-    selectedProduct.description;
+    } catch {
+        return [];
+    }
+}
 
-document.querySelector("#base-price").textContent =
-    basePrice.toLocaleString("ko-KR") + "원";
+function updateCartCount() {
+    $("cart-count").textContent = getCart().reduce(
+        (sum, item) => sum + item.quantity, 0
+    );
+}
 
-document.querySelector("#detail-badge").textContent =
-    selectedProduct.badge;
+$("product-name").textContent = product.name;
+$("product-description").textContent = product.description;
 
-document.querySelector("#detail-img").style.backgroundImage =
-    `url("${selectedProduct.image}")`;
+$("detail-badge").textContent =
+    product.badge || "IPDEOK MENU";
 
-document.querySelector("#detail-img").setAttribute(
-    "role", "img"
-);
+$("detail-img").style.backgroundImage =
+    `url("../lists/img/${productId}.png")`;
 
-document.querySelector("#detail-img").setAttribute(
-    "aria-label", selectedProduct.name
-);
+$("detail-img").style.backgroundColor =
+    product.color || "#FFDDB5";
 
-document.title = "입덕볶이 | " + selectedProduct.name;
+document.title = "입덕볶이 | " + product.name;
 
-function getToppingPrice() {
+$("portion-section").hidden = !isTteokbokki;
+$("spicy-section").hidden = isSide;
+$("topping-section").hidden = isSide;
 
-    let price = 0;
+if (isTteokbokki) {
+    $("portion-one").textContent = money(product.price);
+    $("portion-two").textContent = money(product.large);
+}
 
-    toppings.forEach(topping => {
-        if (topping.checked) {
-            price += Number(topping.value);
-        }
-    });
+function getPortion() {
+    if (!isTteokbokki) return "";
 
-    return price;
+    return document.querySelector(
+        'input[name="portion"]:checked'
+    ).value;
+}
+
+function getBasePrice() {
+    if (isTteokbokki && getPortion() === "2") {
+        return product.large;
+    }
+
+    return product.price;
+}
+
+function getToppings() {
+
+    if (isSide) return [];
+
+    return Array.from(
+        document.querySelectorAll(".topping:checked")
+    ).map(input => ({
+        name: input.parentElement.querySelector("span").textContent,
+        price: Number(input.value)
+    }));
+}
+
+function getUnitPrice() {
+    return getBasePrice() + getToppings().reduce(
+        (sum, topping) => sum + topping.price, 0
+    );
 }
 
 function updatePrice() {
 
-    const total = (basePrice + getToppingPrice()) * quantity;
+    $("base-price").textContent = money(getBasePrice());
 
-    quantityText.textContent = quantity;
+    $("total-price").textContent =
+        money(getUnitPrice() * quantity);
 
-    totalPrice.textContent =
-        total.toLocaleString("ko-KR") + "원";
+    $("quantity").textContent = quantity;
 
-    minus.disabled = quantity === 1;
+    $("minus").disabled = quantity <= 1;
+    $("plus").disabled = quantity >= 99;
 }
 
-plus.addEventListener("click", () => {
-    quantity++;
+$("plus").onclick = () => {
+    if (quantity < 99) quantity++;
     updatePrice();
+};
+
+$("minus").onclick = () => {
+    if (quantity > 1) quantity--;
+    updatePrice();
+};
+
+document.querySelectorAll(
+    'input[name="portion"], .topping'
+).forEach(input => {
+    input.addEventListener("change", updatePrice);
 });
 
-minus.addEventListener("click", () => {
-    if (quantity > 1) {
-        quantity--;
-        updatePrice();
-    }
-});
+function addToCart() {
 
-toppings.forEach(topping => {
-    topping.addEventListener("change", updatePrice);
-});
+    const toppings = getToppings().map(topping => topping.name);
 
-orderButton.addEventListener("click", () => {
+    const spicy = isSide
+        ? ""
+        : document.querySelector(
+            'input[name="spicy"]:checked'
+        ).value;
 
-    const spicy = document.querySelector(
-        'input[name="spicy"]:checked'
-    ).value;
+    const portion = getPortion();
 
-    const selectedToppings = [];
-
-    toppings.forEach(topping => {
-        if (topping.checked) {
-            selectedToppings.push(
-                topping.parentElement.querySelector("span").textContent
-            );
-        }
-    });
-
-    const product = {
-        name: selectedProduct.name,
-        price: basePrice + getToppingPrice(),
-        quantity: quantity,
+    const item = {
+        id: productId,
+        name: product.name,
+        category: product.category,
+        portion: portion,
         spicy: spicy,
-        toppings: selectedToppings,
-        image: selectedProduct.paymentImage
+        toppings: toppings,
+        price: getUnitPrice(),
+        quantity: quantity,
+        image: productId + ".png"
     };
 
-    sessionStorage.setItem(
-        "selectedProduct",
-        JSON.stringify(product)
+    const cart = getCart();
+
+    const sameItem = cart.find(saved =>
+        saved.id === item.id &&
+        saved.portion === item.portion &&
+        saved.spicy === item.spicy &&
+        saved.price === item.price &&
+        JSON.stringify(saved.toppings) ===
+        JSON.stringify(item.toppings)
     );
 
-});
+    if (sameItem) {
+        sameItem.quantity = Math.min(
+            99,
+            sameItem.quantity + quantity
+        );
+    } else {
+        cart.push(item);
+    }
+
+    localStorage.setItem(
+        "ipdeokCart",
+        JSON.stringify(cart)
+    );
+
+    updateCartCount();
+}
+
+$("add-cart").onclick = () => {
+    addToCart();
+    $("cart-popup").hidden = false;
+};
+
+$("buy-now").onclick = () => {
+    addToCart();
+    location.href = "../payment/payment.html";
+};
+
+$("close-popup").onclick = () => {
+    $("cart-popup").hidden = true;
+};
 
 updatePrice();
+updateCartCount();

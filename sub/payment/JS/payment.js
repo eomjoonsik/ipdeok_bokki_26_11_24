@@ -1,39 +1,37 @@
+const $ = id => document.getElementById(id);
 
 const productList = document.querySelector(".payment-products");
-
-const popup = document.querySelector("#cancel-popup");
-const yesButton = document.querySelector("#cancel-yes");
-const noButton = document.querySelector("#cancel-no");
-
 const coupons = document.querySelectorAll(".coupon-card");
-const orderButton = document.querySelector(".final-order-btn");
+const methods = document.querySelectorAll(".method-btn");
 
+let products = [];
 let deleteIndex = null;
 let selectedCoupon = -1;
+let selectedMethod = "";
+let finalPrice = 0;
 
-let products = [
-    {
-        name: "로제 떡볶이",
-        price: 16000,
-        quantity: 1,
-        spicy: "보통맛",
-        toppings: [],
-        image: "product2"
+try {
+    products = JSON.parse(
+        localStorage.getItem("ipdeokCart") || "[]"
+    );
+
+    if (!Array.isArray(products)) {
+        products = [];
     }
-];
 
-const savedProduct = sessionStorage.getItem("selectedProduct");
-
-if (savedProduct) {
-    try {
-        products.push(JSON.parse(savedProduct));
-    } catch (error) {
-        sessionStorage.removeItem("selectedProduct");
-    }
+} catch {
+    products = [];
 }
 
-function formatPrice(price) {
+function money(price) {
     return price.toLocaleString("ko-KR") + "원";
+}
+
+function saveCart() {
+    localStorage.setItem(
+        "ipdeokCart",
+        JSON.stringify(products)
+    );
 }
 
 function renderProducts() {
@@ -44,135 +42,159 @@ function renderProducts() {
 
         productList.innerHTML = `
             <div class="empty-cart">
-                <p>담긴 상품이 없어요</p>
+                <p>아직 담은 메뉴가 없어요.</p>
                 <a href="../lists/lists.html">
-                    메뉴 보러 가기
+                    최애 메뉴 찾기 ↗
                 </a>
             </div>
         `;
 
         updateTotal();
         return;
-
     }
 
     products.forEach((product, index) => {
 
-        const card = document.createElement("div");
-        card.className = "payment-product";
+        const options = [];
 
-        const image = document.createElement("div");
-        image.className = "payment-img " + product.image;
+        if (product.portion) {
+            options.push(product.portion + "인분");
+        }
 
-        const info = document.createElement("div");
-        info.className = "product-info";
+        if (product.spicy) {
+            options.push(product.spicy);
+        }
 
-        const name = document.createElement("h3");
-        name.textContent = product.name;
+        if (product.toppings.length > 0) {
+            options.push(product.toppings.join(", "));
+        }
 
-        const description = document.createElement("p");
+        const item = document.createElement("article");
 
-        description.textContent =
-            product.spicy + " / " +
-            (product.toppings.length > 0
-                ? product.toppings.join(", ")
-                : "추가 토핑 없음");
+        item.className = "payment-product";
 
-        const bottom = document.createElement("div");
-        bottom.className = "product-bottom";
+        item.innerHTML = `
+            <div class="payment-img"></div>
 
-        bottom.innerHTML = `
-            <strong>
-                ${formatPrice(product.price * product.quantity)}
-            </strong>
+            <div class="product-info">
 
-            <div class="quantity">
-                <button type="button">−</button>
-                <span>${product.quantity}</span>
-                <button type="button">+</button>
+                <h3></h3>
+
+                <p class="product-options"></p>
+
+                <div class="product-bottom">
+
+                    <strong>
+                        ${money(product.price * product.quantity)}
+                    </strong>
+
+                    <div class="quantity">
+                        <button class="minus">−</button>
+                        <span>${product.quantity}</span>
+                        <button class="plus">+</button>
+                    </div>
+
+                </div>
+
+                <button class="delete-product">
+                    상품 삭제
+                </button>
+
             </div>
         `;
 
-        info.append(name, description, bottom);
-        card.append(image, info);
-        productList.appendChild(card);
+        item.querySelector("h3").textContent = product.name;
 
-        const minus = card.querySelector(
-            ".quantity button:first-child"
-        );
+        item.querySelector(".product-options").textContent =
+            options.join(" / ") || "기본 구성";
 
-        const plus = card.querySelector(
-            ".quantity button:last-child"
-        );
+        item.querySelector(".payment-img").style.backgroundImage =
+            `url("../lists/img/${product.image}")`;
 
-        plus.addEventListener("click", () => {
+        item.querySelector(".plus").onclick = () => {
 
-            products[index].quantity++;
+            if (product.quantity < 99) {
+                product.quantity++;
+            }
+
+            saveCart();
             renderProducts();
+        };
 
-        });
+        item.querySelector(".minus").onclick = () => {
 
-        minus.addEventListener("click", () => {
+            if (product.quantity > 1) {
 
-            if (products[index].quantity > 1) {
+                product.quantity--;
 
-                products[index].quantity--;
+                saveCart();
                 renderProducts();
 
             } else {
 
-                deleteIndex = index;
-                popup.classList.add("show");
-
+                openDeletePopup(index);
             }
+        };
 
-        });
+        item.querySelector(".delete-product").onclick = () => {
+            openDeletePopup(index);
+        };
 
+        productList.appendChild(item);
     });
 
     updateTotal();
-
 }
 
-yesButton.addEventListener("click", () => {
+function openDeletePopup(index) {
+    deleteIndex = index;
+    $("cancel-popup").classList.add("show");
+}
+
+$("cancel-yes").onclick = () => {
 
     if (deleteIndex !== null) {
-
         products.splice(deleteIndex, 1);
-        renderProducts();
-
     }
 
     deleteIndex = null;
-    popup.classList.remove("show");
 
-});
+    $("cancel-popup").classList.remove("show");
 
-noButton.addEventListener("click", () => {
+    saveCart();
+    renderProducts();
+};
 
+$("cancel-no").onclick = () => {
     deleteIndex = null;
-    popup.classList.remove("show");
+    $("cancel-popup").classList.remove("show");
+};
 
-});
+function getMenuTotal() {
+
+    return products.reduce(
+        (sum, product) =>
+            sum + product.price * product.quantity,
+        0
+    );
+}
 
 function updateTotal() {
 
-    const menuTotal = products.reduce((sum, product) => {
+    const menuTotal = getMenuTotal();
 
-        return sum + product.price * product.quantity;
+    const deliveryFee = products.length > 0
+        ? 3000
+        : 0;
 
-    }, 0);
-
-    const deliveryFee = products.length > 0 ? 3000 : 0;
-
-    const couponAvailable = [
+    const conditions = [
         menuTotal >= 20000,
         menuTotal >= 50000
     ];
 
     if (
         selectedCoupon !== -1 &&
-        !couponAvailable[selectedCoupon]
+        !conditions[selectedCoupon]
     ) {
         selectedCoupon = -1;
     }
@@ -181,7 +203,7 @@ function updateTotal() {
 
         coupon.classList.toggle(
             "unavailable",
-            !couponAvailable[index]
+            !conditions[index]
         );
 
         coupon.classList.toggle(
@@ -194,30 +216,31 @@ function updateTotal() {
         if (!status) {
 
             status = document.createElement("span");
+
             status.className = "coupon-status";
 
             coupon.querySelector(".coupon-info")
                 .appendChild(status);
-
         }
 
-        const minimumPrice = index === 0 ? 20000 : 50000;
+        if (selectedCoupon === index) {
 
-        if (couponAvailable[index]) {
+            status.textContent = "적용 완료";
 
-            status.textContent =
-                selectedCoupon === index
-                    ? "적용 완료"
-                    : "사용 가능";
+        } else if (conditions[index]) {
+
+            status.textContent = "사용 가능";
 
         } else {
 
+            const required = index === 0
+                ? 20000
+                : 50000;
+
             status.textContent =
-                formatPrice(minimumPrice - menuTotal) +
+                money(required - menuTotal) +
                 " 더 담으면 사용 가능";
-
         }
-
     });
 
     let discount = 0;
@@ -230,108 +253,176 @@ function updateTotal() {
         discount = deliveryFee;
     }
 
-    const finalPrice = menuTotal + deliveryFee - discount;
+    finalPrice = menuTotal + deliveryFee - discount;
 
-    document.querySelector("#menu-total").textContent =
-        formatPrice(menuTotal);
+    $("menu-total").textContent = money(menuTotal);
 
-    document.querySelector("#delivery-fee").textContent =
-        formatPrice(deliveryFee);
+    $("delivery-fee").textContent = money(deliveryFee);
 
-    document.querySelector("#coupon-discount").textContent =
-        discount > 0
-            ? "-" + formatPrice(discount)
-            : "0원";
+    $("coupon-discount").textContent =
+        discount > 0 ? "-" + money(discount) : "0원";
 
-    document.querySelector("#final-price").textContent =
-        formatPrice(finalPrice);
+    $("final-price").textContent = money(finalPrice);
 
-    orderButton.classList.toggle(
-        "disabled",
-        products.length === 0
-    );
+    $("order-btn").textContent =
+        money(finalPrice) + " 주문하기";
 
-    orderButton.setAttribute(
-        "aria-disabled",
-        products.length === 0
-    );
-
+    $("order-btn").disabled = products.length === 0;
 }
 
 coupons.forEach((coupon, index) => {
 
-    coupon.addEventListener("click", () => {
+    coupon.onclick = () => {
 
-        if (coupon.classList.contains("unavailable")) {
-            return;
-        }
+        const menuTotal = getMenuTotal();
 
-        selectedCoupon =
-            selectedCoupon === index ? -1 : index;
+        const required = index === 0
+            ? 20000
+            : 50000;
+
+        if (menuTotal < required) return;
+
+        selectedCoupon = selectedCoupon === index
+            ? -1
+            : index;
 
         updateTotal();
-
-    });
-
+    };
 });
-
-const paymentOptions = document.querySelectorAll(
-    'input[name="payment-method"]'
-);
-
-const methodButtons = document.querySelectorAll(".method-btn");
 
 function updatePaymentMethods() {
 
-    const generalPayment = paymentOptions[1].checked;
+    const paymentType = document.querySelector(
+        'input[name="payment-method"]:checked'
+    ).value;
 
-    methodButtons.forEach(button => {
+    const isGeneral = paymentType === "일반 결제";
 
-        button.disabled = !generalPayment;
+    selectedMethod = isGeneral ? "" : "입덕페이";
 
-        if (!generalPayment) {
-            button.classList.remove("selected");
-        }
+    methods.forEach(button => {
 
+        button.disabled = !isGeneral;
+
+        button.classList.remove("selected");
     });
-
 }
 
-paymentOptions.forEach(option => {
+document.querySelectorAll(
+    'input[name="payment-method"]'
+).forEach(input => {
 
-    option.addEventListener(
-        "change",
-        updatePaymentMethods
-    );
-
+    input.onchange = updatePaymentMethods;
 });
 
-methodButtons.forEach(button => {
+methods.forEach(button => {
 
-    button.addEventListener("click", () => {
+    button.onclick = () => {
 
-        methodButtons.forEach(item => {
-            item.classList.remove("selected");
+        selectedMethod = button.dataset.method;
+
+        methods.forEach(method => {
+            method.classList.toggle(
+                "selected",
+                method === button
+            );
         });
-
-        button.classList.add("selected");
-
-    });
-
+    };
 });
 
-orderButton.addEventListener("click", event => {
+$("delivery-address").value =
+    localStorage.getItem("ipdeokAddress") || "";
 
-    if (products.length === 0) {
+$("delivery-detail").value =
+    localStorage.getItem("ipdeokAddressDetail") || "";
 
-        event.preventDefault();
-        return;
+$("delivery-address").onchange = () => {
 
+    localStorage.setItem(
+        "ipdeokAddress",
+        $("delivery-address").value.trim()
+    );
+};
+
+$("delivery-detail").onchange = () => {
+
+    localStorage.setItem(
+        "ipdeokAddressDetail",
+        $("delivery-detail").value.trim()
+    );
+};
+
+$("delivery-request").onchange = () => {
+
+    $("custom-request").hidden =
+        $("delivery-request").value !== "custom";
+};
+
+$("order-btn").onclick = () => {
+
+    if (products.length === 0) return;
+
+    const address = $("delivery-address").value.trim();
+
+    const detail = $("delivery-detail").value.trim();
+
+    let request = $("delivery-request").value;
+
+    if (request === "custom") {
+        request = $("custom-request").value.trim();
+
+        if (!request) {
+            alert("배달 요청사항을 입력해 주세요.");
+            $("custom-request").focus();
+            return;
+        }
     }
 
-    sessionStorage.removeItem("selectedProduct");
+    if (!address) {
 
-});
+        alert("배달 주소를 입력해 주세요.");
+
+        $("delivery-address").focus();
+
+        return;
+    }
+
+    if (!selectedMethod) {
+
+        alert("결제 수단을 선택해 주세요.");
+
+        document.querySelector(".method-section")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+        return;
+    }
+
+    const order = {
+        number: String(Date.now()),
+        products: products,
+        address: address,
+        detail: detail,
+        request: request,
+        method: selectedMethod,
+        total: finalPrice,
+        time: "40~50분"
+    };
+
+    sessionStorage.setItem(
+        "ipdeokOrder",
+        JSON.stringify(order)
+    );
+
+    localStorage.setItem("ipdeokAddress", address);
+    localStorage.setItem("ipdeokAddressDetail", detail);
+
+    localStorage.removeItem("ipdeokCart");
+
+    location.href =
+        "../payment_finish/payment_finish.html";
+};
 
 renderProducts();
 updatePaymentMethods();

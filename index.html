@@ -1,112 +1,75 @@
 
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>입덕볶이</title>
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/main.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>입덕볶이</title>
+<link href="CSS/style.css" rel="stylesheet"/>
+<link href="CSS/main.css" rel="stylesheet"/>
 </head>
 <body>
-
-    <div class="wrap">
-
-        <header class="header">
-
-            <a href="index.html" class="logo">
-                <img src="img/logo.png" alt="입덕볶이">
-            </a>
-
-            <input type="checkbox" id="menu-toggle" class="menu-toggle">
-
-            <label for="menu-toggle" class="menu-btn">
-                <svg width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 6h16"/>
-                    <path d="M4 12h16"/>
-                    <path d="M4 18h16"/>
-                </svg>
-            </label>
-
-            <label for="menu-toggle" class="menu-overlay"></label>
-
-            <nav class="side-menu">
-
-                <div class="side-menu-header">
-                    <h2>메뉴</h2>
-
-                    <label for="menu-toggle" class="close-btn">
-                        <svg width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m18 6-12 12"/>
-                            <path d="m6 6 12 12"/>
-                        </svg>
-                    </label>
-                </div>
-
-                <ul class="side-menu-list">
-                    <li><a href="sub/lists/lists.html">떡볶이 메뉴</a></li>
-                    <li><a href="sub/about/about.html">소개</a></li>
-                    <li><a href="sub/community/community.html">커뮤니티</a></li>
-                    <li><a href="sub/login/login.html">로그인</a></li>
-
-                </ul>
-
-            </nav>
-           
-        </header>
-
-        <main class="home-main">
-
-            <section class="hero-section">
-
-                <div class="hero-copy">
-
-                    <div class="hero-top">
-                        <span>IPDEOK BOKKI</span>
-                        <span>EST. 2026</span>
-                    </div>
-
-                    <h1>떡볶이에<br>빠지다<span>.</span></h1>
-
-                    <p>SPICY, SWEET & ADDICTIVE!</p>
-
-                </div>
-
-                <div class="hero-img"></div>
-
-                <div class="order-wrap">
-
-                    <a href="sub/lists/lists.html" class="delivery-btn">
-                        지금 입덕하기
-                        <span>↗</span>
-                    </a>
-
-                    <p class="order-caption">맛있는 입덕의 시작, 배달 주문하기</p>
-
-                </div>
-
-            </section>
-
-            <div class="brand-strip">
-                <span>HOT!</span>
-                <span>✳</span>
-                <span>IPDEOK BOKKI</span>
-                <span>✳</span>
-                <span>HOT!</span>
-            </div>
-
-            <div class="quick-order">
-
-                <button class="phone-btn" type="button">
-
-                    <svg width="23" height="23" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2
+<div class="wrap">
+<header class="header">
+<a class="logo" href="index.html">
+<img alt="입덕볶이" src="img/logo.png"/>
+</a>
+<input class="menu-toggle" id="menu-toggle" type="checkbox"/>
+<label class="menu-btn" for="menu-toggle">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24">
+<path d="M4 6h16"></path>
+<path d="M4 12h16"></path>
+<path d="M4 18h16"></path>
+</svg>
+</label>
+<label class="menu-overlay" for="menu-toggle"></label>
+<nav class="side-menu">
+<div class="side-menu-header">
+<h2>메뉴</h2>
+<label class="close-btn" for="menu-toggle">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24">
+<path d="m18 6-12 12"></path>
+<path d="m6 6 12 12"></path>
+</svg>
+</label>
+</div>
+<ul class="side-menu-list">
+<li><a href="sub/lists/lists.html">떡볶이 메뉴</a></li>
+<li><a href="sub/about/about.html">소개</a></li>
+<li><a href="sub/community/community.html">커뮤니티</a></li>
+<li><a href="sub/login/login.html">로그인</a></li>
+</ul>
+</nav>
+</header>
+<main class="home-main">
+<section class="hero-section">
+<div class="hero-copy">
+<div class="hero-top">
+<span>IPDEOK BOKKI</span>
+<span>EST. 2026</span>
+</div>
+<h1>떡볶이에<br/>제대로 빠지다<span>.</span></h1>
+<p>맵고, 달고, 중독적인.</p>
+</div>
+<div class="hero-img"></div><div class="hero-stamp">100%<br/>입덕 보장!</div>
+<div class="order-wrap">
+<a class="delivery-btn" href="sub/lists/lists.html">지금 주문하기 <span>↗</span>
+</a>
+<p class="order-caption">맛있는 입덕의 시작, 배달 주문하기</p>
+</div>
+</section>
+<div class="brand-strip">
+<span>HOT!</span>
+<span>✳</span>
+<span>IPDEOK BOKKI</span>
+<span>✳</span>
+<span>HOT!</span>
+</div>
+<div class="quick-order">
+<button class="phone-btn" type="button">
+<svg fill="none" height="23" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="23">
+<path d="M22 16.92v3a2 2 0 0 1-2.18 2
                         19.79 19.79 0 0 1-8.63-3.07
                         19.5 19.5 0 0 1-6-6
                         19.79 19.79 0 0 1-3.07-8.67
@@ -117,246 +80,154 @@
                         a16 16 0 0 0 6 6l1.27-1.27
                         a2 2 0 0 1 2.11-.45
                         12.84 12.84 0 0 0 2.81.7
-                        A2 2 0 0 1 22 16.92z"/>
-                    </svg>
+                        A2 2 0 0 1 22 16.92z"></path>
+</svg>
 
                     전화 주문
 
                 </button>
-
-                <div class="quick-divider"></div>
-
-                <a href="#event" class="coupon-btn">
-
-                    <svg width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 5h16a2 2 0 0 1 2 2v2
+<div class="quick-divider"></div>
+<a class="coupon-btn" href="#event">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="24">
+<path d="M4 5h16a2 2 0 0 1 2 2v2
                         a3 3 0 0 0 0 6v2a2 2 0 0 1-2 2H4
                         a2 2 0 0 1-2-2v-2a3 3 0 0 0 0-6V7
-                        a2 2 0 0 1 2-2z"/>
-                        <path d="M13 5v2m0 4v2m0 4v2"/>
-                    </svg>
+                        a2 2 0 0 1 2-2z"></path>
+<path d="M13 5v2m0 4v2m0 4v2"></path>
+</svg>
 
                     쿠폰 혜택
 
                 </a>
-
-            </div>
-
-            <section class="recommend-section">
-
-                <div class="home-heading">
-
-                    <span class="english-title">BEST SELLER</span>
-
-                    <h2>입덕의 시작<span>.</span></h2>
-
-                    <p>가장 많은 사랑을 받은 메뉴를 만나보세요.</p>
-
-                </div>
-
-                <div class="recommend-slider">
-
-                    <article class="recommend-card best-card">
-
-                        <div class="recommend-img recommend-img1"></div>
-
-                        <div class="recommend-info">
-
-                            <span class="rank-label">BEST 01</span>
-
-                            <h3>오리지널 떡볶이</h3>
-
-                            <p>매콤달콤한 시그니처</p>
-
-                            <strong>14,000원</strong>
-
-                        </div>
-
-                        <a href="sub/detail/detail.html?id=1" class="recommend-btn">
+</div>
+<section class="recommend-section">
+<div class="home-heading">
+<span class="english-title">BEST SELLER</span>
+<h2>입덕 유발 메뉴.</h2>
+<p>오늘의 추천 라인업</p>
+</div>
+<div class="recommend-slider">
+<article class="recommend-card best-card">
+<div class="recommend-img recommend-img1"></div>
+<div class="recommend-info">
+<span class="rank-label">BEST 01</span>
+<h3>오리지널 떡볶이</h3>
+<p>매콤달콤한 시그니처</p>
+<strong>14,000원</strong>
+</div>
+<a class="recommend-btn" href="sub/detail/detail.html?id=1">
                             ↗
                         </a>
-
-                    </article>
-
-                    <article class="recommend-card side-card">
-
-                        <div class="recommend-img recommend-img2"></div>
-
-                        <div class="recommend-info">
-
-                            <span class="rank-label">BEST 02</span>
-
-                            <h3>로제 떡볶이</h3>
-
-                            <p>부드럽고 꾸덕한 로제</p>
-
-                            <strong>16,000원</strong>
-
-                        </div>
-
-                        <a href="sub/detail/detail.html?id=2" class="recommend-btn">
+</article>
+<article class="recommend-card side-card">
+<div class="recommend-img recommend-img2"></div>
+<div class="recommend-info">
+<span class="rank-label">BEST 02</span>
+<h3>로제 떡볶이</h3>
+<p>부드럽고 꾸덕한 로제</p>
+<strong>16,000원</strong>
+</div>
+<a class="recommend-btn" href="sub/detail/detail.html?id=2">
                             ↗
                         </a>
-
-                    </article>
-
-                    <article class="recommend-card side-card">
-
-                        <div class="recommend-img recommend-img3"></div>
-
-                        <div class="recommend-info">
-
-                            <span class="rank-label">BEST 03</span>
-
-                            <h3>마라 떡볶이</h3>
-
-                            <p>얼얼하고 중독적인 맛</p>
-
-                            <strong>17,000원</strong>
-
-                        </div>
-
-                        <a href="sub/detail/detail.html?id=3" class="recommend-btn">
+</article>
+<article class="recommend-card side-card">
+<div class="recommend-img recommend-img3"></div>
+<div class="recommend-info">
+<span class="rank-label">BEST 03</span>
+<h3>마라 떡볶이</h3>
+<p>얼얼하고 중독적인 맛</p>
+<strong>17,000원</strong>
+</div>
+<a class="recommend-btn" href="sub/detail/detail.html?id=3">
                             ↗
                         </a>
-
-                    </article>
-
-                </div>
-
-            </section>
-
-            <section class="menu-section">
-
-                <div class="home-heading">
-
-                    <span class="english-title">WHAT'S YOUR PICK?</span>
-
-                    <h2>당신의 최애는<span>?</span></h2>
-
-                    <p>취향대로 골라보는 나만의 떡볶이.</p>
-
-                </div>
-
-                <div class="menu-grid">
-
-                    <a href="sub/detail/detail.html?id=1" class="menu-item">
-
-                        <div class="menu-img menu-img1">
-                            <span class="menu-number">01.</span>
-                        </div>
-
-                        <h3>오리지널 떡볶이</h3>
-                        <p>매콤달콤한 시그니처</p>
-                        <strong>14,000원</strong>
-
-                    </a>
-
-                    <a href="sub/detail/detail.html?id=2" class="menu-item">
-
-                        <div class="menu-img menu-img2">
-                            <span class="menu-number">02.</span>
-                        </div>
-
-                        <h3>로제 떡볶이</h3>
-                        <p>부드럽고 꾸덕한 로제</p>
-                        <strong>16,000원</strong>
-
-                    </a>
-
-                    <a href="sub/detail/detail.html?id=3" class="menu-item">
-
-                        <div class="menu-img menu-img3">
-                            <span class="menu-number">03.</span>
-                        </div>
-
-                        <h3>마라 떡볶이</h3>
-                        <p>얼얼하고 중독적인 맛</p>
-                        <strong>17,000원</strong>
-
-                    </a>
-
-                    <a href="sub/detail/detail.html?id=4" class="menu-item">
-
-                        <div class="menu-img menu-img4">
-                            <span class="menu-number">04.</span>
-                        </div>
-
-                        <h3>짜장 떡볶이</h3>
-                        <p>달콤하고 고소한 짜장</p>
-                        <strong>14,000원</strong>
-
-                    </a>
-
-                </div>
-
-                <a href="sub/lists/lists.html" class="all-menu-btn">
+</article>
+</div>
+</section>
+<section class="menu-section">
+<div class="home-heading">
+<span class="english-title">WHAT'S YOUR PICK?</span>
+<h2>당신의 최애는?</h2>
+<p>취향대로 골라보는 나만의 떡볶이.</p>
+</div>
+<div class="menu-grid">
+<a class="menu-item" href="sub/detail/detail.html?id=1"><span class="profile-label">PROFILE / 01</span>
+<div class="menu-img menu-img1">
+<span class="menu-number">01.</span>
+</div>
+<h3>오리지널 떡볶이</h3>
+<p>매콤달콤 센터</p>
+<strong>14,000원</strong>
+</a>
+<a class="menu-item" href="sub/detail/detail.html?id=2"><span class="profile-label">PROFILE / 02</span>
+<div class="menu-img menu-img2">
+<span class="menu-number">02.</span>
+</div>
+<h3>로제 떡볶이</h3>
+<p>부드러운 매력 담당</p>
+<strong>16,000원</strong>
+</a>
+<a class="menu-item" href="sub/detail/detail.html?id=3"><span class="profile-label">PROFILE / 03</span>
+<div class="menu-img menu-img3">
+<span class="menu-number">03.</span>
+</div>
+<h3>마라 떡볶이</h3>
+<p>얼얼한 카리스마</p>
+<strong>17,000원</strong>
+</a>
+<a class="menu-item" href="sub/detail/detail.html?id=4"><span class="profile-label">PROFILE / 04</span>
+<div class="menu-img menu-img4">
+<span class="menu-number">04.</span>
+</div>
+<h3>짜장 떡볶이</h3>
+<p>달콤한 분위기 메이커</p>
+<strong>14,000원</strong>
+</a>
+</div>
+<a class="all-menu-btn" href="sub/lists/lists.html">
                     전체 메뉴 보러 가기
                     <span>↗</span>
-                </a>
-
-            </section>
-
-            <section class="event-section" id="event">
-
-                <div class="home-heading">
-
-                    <span class="english-title">SPECIAL EVENT</span>
-
-                    <h2>입덕하면 좋은 일이<span>!</span></h2>
-
-                    <p>입덕볶이가 준비한 특별한 혜택.</p>
-
-                </div>
-
-                <article class="event-card">
-
-                    <div class="event-img"></div>
-
-                    <div class="event-content">
-
-                        <span class="event-category">진행 중</span>
-
-                        <h3 class="event-title">
+</a>
+</section>
+<section class="fan-chart"><div class="home-heading"><span class="english-title">IPDEOK CHART / VOL.01</span><h2>최애에게 한 표!</h2><p>이번 주 인기 차트 · 시연용 데이터</p></div><div id="chart-list"></div><p aria-live="polite" id="vote-status">최애 메뉴를 선택해 주세요.</p><a class="all-menu-btn" href="sub/community/community.html">입덕 광장 가기 ↗</a></section><section class="event-section" id="event">
+<div class="home-heading">
+<span class="english-title">SPECIAL EVENT</span>
+<h2>입덕 특전!</h2>
+<p>입덕볶이가 준비한 특별한 혜택.</p>
+</div>
+<article class="event-card">
+<div class="event-img"></div>
+<div class="event-content"><div class="ticket-label">WELCOME TICKET / 01</div>
+<span class="event-category">진행 중</span>
+<h3 class="event-title">
                             첫 입덕을 환영해!
                             신규 회원 5,000원 할인
                         </h3>
-
-                        <p class="event-date">
+<p class="event-date">
                             2026.11.23 - 2026.12.31
                         </p>
-
-                    </div>
-
-                </article>
-
-            </section>
-
-        </main>
-
-        <footer class="home-footer">
-
-            <span class="footer-caption">LOVE AT FIRST BITE!</span>
-
-            <h2>입덕볶이<span>.</span></h2>
-
-            <p>한 입으로 시작되는 맛있는 입덕.</p>
-
-            <div class="footer-links">
-                <a href="sub/lists/lists.html">메뉴 소개</a>
-                <a href="#event">이벤트</a>
-                <a href="index.html">홈으로</a>
-            </div>
-
-            <div class="footer-divider"></div>
-
-            <small>© 2026 IPDEOK BOKKI.</small>
-
-        </footer>
-
-    </div>
-
-</body>
+</div>
+</article>
+</section>
+</main>
+<footer class="home-footer">
+<span class="footer-caption">LOVE AT FIRST BITE!</span>
+<h2>입덕볶이<span>.</span></h2>
+<p>한 입으로 시작되는 맛있는 입덕.</p>
+<div class="footer-links">
+<a href="sub/lists/lists.html">메뉴 소개</a>
+<a href="#event">이벤트</a>
+<a href="index.html">홈으로</a>
+</div>
+<div class="footer-divider"></div>
+<small>© 2026 IPDEOK BOKKI.</small>
+</footer>
+</div>
+<script>
+const names=['오리지널','로제','마라','치즈','크림','짜장'];
+const counts=[128,106,85,63,42,32];
+let vote=-1;try{const v=localStorage.getItem('ipdeokVote');if(v!==null&&/^[0-5]$/.test(v))vote=Number(v);}catch(e){}
+function drawChart(){const list=document.getElementById('chart-list');list.replaceChildren();const ranks=names.map((name,i)=>({name,i,count:counts[i]+(vote===i?1:0)})).sort((a,b)=>b.count-a.count);ranks.forEach((item,rank)=>{const b=document.createElement('button');b.type='button';b.className='chart-row'+(vote===item.i?' chosen':'');b.setAttribute('aria-pressed',String(vote===item.i));b.innerHTML=`<span class="chart-rank">0${rank+1}</span><span>${item.name}</span><span class="chart-count">${item.count}표</span><span aria-hidden="true">${vote===item.i?'♥':'♡'}</span><span class="chart-track"><span style="width:${item.count/129*100}%"></span></span>`;b.onclick=()=>{vote=vote===item.i?-1:item.i;try{localStorage.setItem('ipdeokVote',String(vote));}catch(e){}drawChart();};list.append(b);});document.getElementById('vote-status').textContent=vote<0?'최애 메뉴를 선택해 주세요.':names[vote]+'에게 투표 완료!';}drawChart();
+</script></body>
 </html>

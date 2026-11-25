@@ -1,171 +1,221 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>입덕볶이 | 메뉴 상세페이지</title>
+    <title>입덕볶이 | 메뉴 상세</title>
     <link rel="stylesheet" href="../../CSS/style.css">
     <link rel="stylesheet" href="CSS/detail.css">
 </head>
 <body>
 
-    <div class="wrap">
+<div class="wrap">
 
-        <header class="header">
+    <header class="header">
 
-            <a href="../../index.html" class="logo">
-                <img src="../../img/logo.png" alt="입덕볶이">
-            </a>
+        <a href="../../index.html" class="logo">
+            <img src="../../img/logo.png" alt="입덕볶이">
+        </a>
 
-            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
 
-            <label for="menu-toggle" class="menu-btn" aria-label="메뉴 열기">
-                <svg width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 6h16"/>
-                    <path d="M4 12h16"/>
-                    <path d="M4 18h16"/>
-                </svg>
-            </label>
+        <label for="menu-toggle" class="menu-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round">
+                <path d="M4 6h16"/>
+                <path d="M4 12h16"/>
+                <path d="M4 18h16"/>
+            </svg>
+        </label>
 
-            <label for="menu-toggle" class="menu-overlay"></label>
+        <label for="menu-toggle" class="menu-overlay"></label>
 
-            <nav class="side-menu">
+        <nav class="side-menu">
 
-                <div class="side-menu-header">
-                    <h2>메뉴</h2>
+            <div class="side-menu-header">
+                <h2>메뉴</h2>
+                <label for="menu-toggle" class="close-btn">✕</label>
+            </div>
 
-                    <label for="menu-toggle" class="close-btn" aria-label="메뉴 닫기">
-                        <svg width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m18 6-12 12"/>
-                            <path d="m6 6 12 12"/>
-                        </svg>
-                    </label>
-                </div>
-
-                <ul class="side-menu-list">
+            <ul class="side-menu-list">
                 <li><a href="../about/about.html">소개</a></li>
                 <li><a href="../community/community.html">커뮤니티</a></li>
                 <li><a href="../login/login.html">로그인</a></li>
-                </ul>
+            </ul>
 
-            </nav>
+        </nav>
 
-        </header>
+    </header>
 
-        <main class="detail-main">
+    <main class="detail-main">
 
-            <div class="detail-img" id="detail-img"></div>
-
-            <section class="detail-info">
-
-                <span class="detail-badge" id="detail-badge">BEST MENU</span>
-
-                <h1 id="product-name">오리지널 떡볶이</h1>
-
-                <p id="product-description">
-                    입덕볶이의 시그니처 메뉴,<br>
-                    매콤달콤한 중독적인 맛!
-                </p>
-
-                <strong class="base-price" id="base-price">14,000원</strong>
-
-            </section>
-
-            <section class="detail-section">
-
-                <div class="option-heading">
-                    <h2>맵기 선택</h2>
-                    <span class="required">필수 선택</span>
-                </div>
-
-                <div class="spicy-options">
-
-                    <label class="detail-option">
-                        <input type="radio" name="spicy" value="순한맛">
-                        <span>순한맛</span>
-                    </label>
-
-                    <label class="detail-option">
-                        <input type="radio" name="spicy" value="보통맛" checked>
-                        <span>보통맛</span>
-                    </label>
-
-                    <label class="detail-option">
-                        <input type="radio" name="spicy" value="매운맛">
-                        <span>매운맛</span>
-                    </label>
-
-                    <label class="detail-option">
-                        <input type="radio" name="spicy" value="아주 매운맛">
-                        <span>아주 매운맛</span>
-                    </label>
-
-                </div>
-
-            </section>
-
-            <section class="detail-section">
-
-                <div class="option-heading">
-                    <h2>토핑 추가</h2>
-                    <span>선택 사항</span>
-                </div>
-
-                <div class="topping-options">
-
-                    <label class="detail-option">
-                        <input type="checkbox" class="topping" value="3000">
-                        <span>모짜렐라 치즈</span>
-                        <strong>+3,000원</strong>
-                    </label>
-
-                    <label class="detail-option">
-                        <input type="checkbox" class="topping" value="2000">
-                        <span>중국당면</span>
-                        <strong>+2,000원</strong>
-                    </label>
-
-                    <label class="detail-option">
-                        <input type="checkbox" class="topping" value="1000">
-                        <span>메추리알</span>
-                        <strong>+1,000원</strong>
-                    </label>
-
-                </div>
-
-            </section>
-
-            <section class="detail-section">
-
-                <div class="quantity-row">
-
-                    <h2>수량</h2>
-
-                    <div class="detail-quantity">
-                        <button type="button" id="minus">−</button>
-                        <span id="quantity">1</span>
-                        <button type="button" id="plus">+</button>
-                    </div>
-
-                </div>
-
-            </section>
-
-            <a href="../payment/payment.html" class="detail-order-btn">
-                <span id="total-price">14,000원</span>
-                주문하기
+        <div class="detail-navigation">
+            <a href="../lists/lists.html">← 메뉴 목록</a>
+            <a href="../payment/payment.html">
+                장바구니 <span id="cart-count">0</span>
             </a>
+        </div>
 
-        </main>
+        <div class="detail-img" id="detail-img"></div>
+
+        <section class="detail-info">
+
+            <span class="detail-badge" id="detail-badge">
+                IPDEOK MENU
+            </span>
+
+            <h1 id="product-name"></h1>
+
+            <p id="product-description"></p>
+
+            <strong class="base-price" id="base-price"></strong>
+
+        </section>
+
+        <section class="detail-section" id="portion-section">
+
+            <div class="option-heading">
+                <h2>인분 선택</h2>
+                <span class="required">필수 선택</span>
+            </div>
+
+            <div class="spicy-options">
+
+                <label class="detail-option">
+                    <input type="radio" name="portion" value="1" checked>
+                    <span>1인분</span>
+                    <strong id="portion-one"></strong>
+                </label>
+
+                <label class="detail-option">
+                    <input type="radio" name="portion" value="2">
+                    <span>2인분</span>
+                    <strong id="portion-two"></strong>
+                </label>
+
+            </div>
+
+        </section>
+
+        <section class="detail-section" id="spicy-section">
+
+            <div class="option-heading">
+                <h2>맵기 선택</h2>
+                <span class="required">필수 선택</span>
+            </div>
+
+            <div class="spicy-options">
+
+                <label class="detail-option">
+                    <input type="radio" name="spicy" value="순한맛">
+                    <span>순한맛</span>
+                </label>
+
+                <label class="detail-option">
+                    <input type="radio" name="spicy" value="보통맛" checked>
+                    <span>보통맛</span>
+                </label>
+
+                <label class="detail-option">
+                    <input type="radio" name="spicy" value="매운맛">
+                    <span>매운맛</span>
+                </label>
+
+                <label class="detail-option">
+                    <input type="radio" name="spicy" value="아주 매운맛">
+                    <span>아주 매운맛</span>
+                </label>
+
+            </div>
+
+        </section>
+
+        <section class="detail-section" id="topping-section">
+
+            <div class="option-heading">
+                <h2>토핑 추가</h2>
+                <span>선택 사항</span>
+            </div>
+
+            <div class="topping-options">
+
+                <label class="detail-option">
+                    <input type="checkbox" class="topping" value="3000">
+                    <span>모짜렐라 치즈</span>
+                    <strong>+3,000원</strong>
+                </label>
+
+                <label class="detail-option">
+                    <input type="checkbox" class="topping" value="2000">
+                    <span>중국당면</span>
+                    <strong>+2,000원</strong>
+                </label>
+
+                <label class="detail-option">
+                    <input type="checkbox" class="topping" value="1000">
+                    <span>메추리알</span>
+                    <strong>+1,000원</strong>
+                </label>
+
+            </div>
+
+        </section>
+
+        <section class="detail-section">
+
+            <div class="quantity-row">
+
+                <h2>수량</h2>
+
+                <div class="detail-quantity">
+                    <button type="button" id="minus">−</button>
+                    <span id="quantity">1</span>
+                    <button type="button" id="plus">+</button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <button type="button" id="add-cart" class="detail-order-btn">
+            <span id="total-price"></span>
+            장바구니 담기
+        </button>
+
+        <button type="button" id="buy-now" class="buy-now">
+            바로 주문하기 ↗
+        </button>
+
+    </main>
+
+</div>
+
+<div class="cart-overlay" id="cart-popup" hidden>
+
+    <div class="cart-popup">
+
+        <small>IPDEOK COLLECTION</small>
+
+        <h2>최애를 담았어요!</h2>
+
+        <p>장바구니에 메뉴가 추가되었습니다.</p>
+
+        <a href="../lists/lists.html" class="continue-btn">
+            메뉴 더 둘러보기
+        </a>
+
+        <a href="../payment/payment.html" class="checkout-btn">
+            장바구니 확인하기 ↗
+        </a>
+
+        <button id="close-popup">닫기</button>
 
     </div>
 
-    <script src="JS/detail.js"></script>
+</div>
+
+<script src="JS/detail.js"></script>
 
 </body>
 </html>

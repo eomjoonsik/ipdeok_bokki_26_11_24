@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입덕볶이 | 취향 테스트</title>
+    <link rel="stylesheet" href="../../CSS/style.css">
+    <link rel="stylesheet" href="CSS/typetest.css">
+</head>
+<body>
+
+<div class="wrap">
+
+    <header class="header">
+        <a href="../../index.html" class="logo">
+            <img src="../../img/logo.png" alt="입덕볶이">
+        </a>
+
+        <a href="../lists/lists.html" class="test-close">✕</a>
+    </header>
+
+    <main class="type-main">
+
+        <section id="start-screen" class="test-screen">
+
+            <div class="test-intro">
+
+                <p class="eyebrow">IPDEOK BOKKI / TYPE TEST</p>
+
+                <h1>운명의<br>최애 찾기<span>!</span></h1>
+
+                <p>나의 취향을 담은 단 하나의 조합.</p>
+
+                <div class="intro-pack">
+
+                    <div class="pack-seal"></div>
+
+                    <small>SECRET COLLECTION</small>
+
+                    <strong>LUCKY<br>PACK!</strong>
+
+                    <span class="pack-star">✳</span>
+
+                    <p>TYPE A · B · C · D</p>
+
+                    <div class="pack-seal"></div>
+
+                </div>
+
+                <p class="intro-caption">
+                    5개의 질문 · 약 30초 소요
+                </p>
+
+                <button id="start-btn" class="type-btn">
+                    나의 최애 찾기 ↗
+                </button>
+
+            </div>
+
+        </section>
+
+        <section id="question-screen" class="test-screen" hidden>
+
+            <div class="progress-info">
+                <span>TYPE TEST</span>
+                <span id="progress-number">01 / 05</span>
+            </div>
+
+            <div class="progress-track">
+                <div id="progress-bar"></div>
+            </div>
+
+            <div class="question-content">
+
+                <span id="question-number">Q.01</span>
+
+                <h2 id="question-title"></h2>
+
+                <div id="answer-list"></div>
+
+                <button id="prev-btn" class="prev-btn">
+                    ← 이전 질문
+                </button>
+
+            </div>
+
+        </section>
+
+        <section id="result-screen" class="test-screen" hidden>
+
+            <div class="result-heading">
+
+                <p class="eyebrow">YOUR SECRET COLLECTION</p>
+
+                <h2 id="result-heading">
+                    최애가 도착했어요!
+                </h2>
+
+                <p id="result-guide">
+                    카드팩을 눌러 개봉해 보세요.
+                </p>
+
+            </div>
+
+            <div id="reveal-stage" class="reveal-stage">
+
+                <article id="result-card" class="result-card">
+
+                    <div class="card-header">
+                        <span id="result-type"></span>
+                        <span>✳</span>
+                    </div>
+
+                    <div class="card-photo">
+                        <img id="result-img" alt="">
+                    </div>
+
+                    <div class="card-info">
+
+                        <small>MY FAVORITE MENU</small>
+
+                        <h2 id="result-name"></h2>
+
+                        <p id="result-description"></p>
+
+                        <strong id="result-price"></strong>
+
+                    </div>
+
+                    <div class="card-footer">
+                        IPDEOK BOKKI © 2026
+                    </div>
+
+                </article>
+
+                <button id="open-pack" class="open-pack">
+
+                    <div class="pack-seal"></div>
+
+                    <small>SECRET COLLECTION</small>
+
+                    <strong>LUCKY<br>PACK!</strong>
+
+                    <span class="pack-star">✳</span>
+
+                    <p>TAP TO OPEN!</p>
+
+                    <div class="pack-seal"></div>
+
+                </button>
+
+            </div>
+
+            <div id="result-actions" hidden>
+
+                <p id="result-menu"></p>
+
+                <button id="save-card" class="type-btn">
+                    포토카드 저장하기 ↓
+                </button>
+
+                <a href="../lists/lists.html?category=set"
+                    id="recommended-order"
+                    class="type-btn secondary-btn">
+                    나의 최애 세트 주문하기 ↗
+                </a>
+
+                <button id="restart-btn" class="restart-btn">
+                    테스트 다시 하기
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="JS/typetest.js"></script>
+
+</body>
+</html>

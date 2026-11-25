@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -10,219 +9,317 @@
 </head>
 <body>
 
-    <div class="wrap">
+<div class="wrap">
 
-        <header class="header">
-            <a href="../../index.html" class="logo">
-                <img src="../../img/logo.png" alt="입덕볶이">
-            </a>
+    <header class="header">
+        <a href="../../index.html" class="logo">
+            <img src="../../img/logo.png" alt="입덕볶이">
+        </a>
 
-            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
 
-            <label for="menu-toggle" class="menu-btn">
-                <svg width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 6h16"/>
-                    <path d="M4 12h16"/>
-                    <path d="M4 18h16"/>
-                </svg>
-            </label>
+        <label for="menu-toggle" class="menu-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 6h16"/>
+                <path d="M4 12h16"/>
+                <path d="M4 18h16"/>
+            </svg>
+        </label>
 
-            <label for="menu-toggle" class="menu-overlay"></label>
+        <label for="menu-toggle" class="menu-overlay"></label>
 
-            <nav class="side-menu">
-                <div class="side-menu-header">
-                    <h2>메뉴</h2>
+        <nav class="side-menu">
+            <div class="side-menu-header">
+                <h2>메뉴</h2>
 
-                    <label for="menu-toggle" class="close-btn">
-                        <svg width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m18 6-12 12"/>
-                            <path d="m6 6 12 12"/>
-                        </svg>
-                    </label>
-                </div>
+                <label for="menu-toggle" class="close-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m18 6-12 12"/>
+                        <path d="m6 6 12 12"/>
+                    </svg>
+                </label>
+            </div>
 
-                <ul class="side-menu-list">
+            <ul class="side-menu-list">
                 <li><a href="../about/about.html">소개</a></li>
                 <li><a href="../community/community.html">커뮤니티</a></li>
                 <li><a href="../login/login.html">로그인</a></li>
-            
-                </ul>
-            </nav>
-        </header>
+            </ul>
+        </nav>
+    </header>
 
-        <main class="lists-main">
+    <main class="lists-main">
 
-            <div class="category-wrap">
-                <button class="category-btn active">떡볶이</button>
-                <button class="category-btn">세트메뉴</button>
-                <button class="category-btn">사이드</button>
-            </div>
+        <section class="list-hero">
+            <small>IPDEOK BOKKI / MENU COLLECTION</small>
+            <h1>당신의 최애는?</h1>
+            <p>취향대로 골라보는 19가지 메뉴.</p>
+        </section>
+        <a href="../payment/payment.html" class="cart-link">
+         장바구니 확인하기 ↗
+        </a>
+        <div class="category-wrap">
+            <button data-cat="떡볶이" class="active">떡볶이</button>
+            <button data-cat="세트메뉴">세트메뉴</button>
+            <button data-cat="사이드">사이드</button>
+        </div>
 
-            <div class="address-box">
+        <div class="address-box">
+            <span id="address">기본배달지를 등록해 주세요</span>
+            <button id="address-btn">등록 ↗</button>
+        </div>
 
-                <div class="address-text">
-                    <svg width="20" height="20" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/>
-                        <circle cx="12" cy="10" r="3"/>
-                    </svg>
+        <section class="test-banner">
+            <small>SECRET COLLECTION / TYPE A–D</small>
+            <h2>나와 맞는 조합은?</h2>
+            <p>근본 · 말랑 · 얼얼 · 단짠</p>
+            <button onclick="location.href='../typetest/typetest.html'">
+    운명의 최애 찾기 ↗
+</button>
+        </section>
 
-                    <span>기본배달지를 등록해 주세요</span>
-                </div>
+        <div class="list-heading">
+            <h2 id="category-title">떡볶이</h2>
+            <span id="count"></span>
+        </div>
 
-                <button class="address-btn">
-                    <svg width="14" height="14" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="8"/>
-                        <circle cx="12" cy="12" r="3"/>
-                        <path d="M12 1v3M12 20v3M1 12h3M20 12h3"/>
-                    </svg>
-                    등록
+        <div class="filters">
+            <button id="favorites" aria-pressed="false">
+                ♡ 최애만 보기
+            </button>
+
+            <select id="sort" aria-label="메뉴 정렬">
+                <option value="popular">인기순</option>
+                <option value="low">낮은 가격순</option>
+                <option value="high">높은 가격순</option>
+            </select>
+        </div>
+
+        <div id="products" class="product-grid"></div>
+
+    </main>
+</div>
+
+<script>
+
+const groups = {
+    "떡볶이": [
+        ["오리지널 떡볶이", 9000, "매콤달콤 센터", 14000],
+        ["로제 떡볶이", 11000, "부드러운 매력", 16000],
+        ["마라 떡볶이", 12000, "얼얼한 존재감", 17000],
+        ["짜장 떡볶이", 9000, "달콤한 반전", 14000],
+        ["크림 떡볶이", 11000, "고소한 매력", 16000],
+        ["치즈 떡볶이", 10000, "치즈 듬뿍", 15000]
+    ],
+
+    "세트메뉴": [
+        ["근본 세트", 18000, "오리지널 + 김말이 + 튀김만두"],
+        ["말랑 세트", 22000, "로제 + 치즈볼 + 감자튀김"],
+        ["얼얼 세트", 23000, "마라 + 중국당면 + 순살치킨"],
+        ["단짠 세트", 19500, "치즈 + 핫도그 + 주먹밥"]
+    ],
+
+    "사이드": [
+        ["김말이", 3000, "바삭한 한입"],
+        ["튀김만두", 3000, "떡볶이 단짝"],
+        ["치즈볼", 4000, "쭉 늘어나는 치즈"],
+        ["감자튀김", 4000, "바삭하고 짭짤한"],
+        ["순살치킨", 6000, "든든한 한입"],
+        ["설탕 듬뿍 핫도그", 3000, "달콤 바삭"],
+        ["주먹밥", 3500, "고소한 한입"],
+        ["모둠튀김", 5000, "골고루 즐기는"],
+        ["중국당면", 2000, "쫄깃한 식감"]
+    ]
+};
+
+const prefixes = {
+    "떡볶이": "list",
+    "세트메뉴": "set",
+    "사이드": "side"
+};
+
+const colors = [
+    "#FFBC85",
+    "#FFB2A1",
+    "#D99780",
+    "#E7C79D",
+    "#F5DDB0",
+    "#FFD45C"
+];
+
+let cat = "떡볶이";
+let only = false;
+let fav = [];
+
+try {
+    fav = JSON.parse(localStorage.getItem("ipdeokFavorites") || "[]");
+
+    if (!Array.isArray(fav)) {
+        fav = [];
+    }
+} catch {}
+
+const $ = id => document.getElementById(id);
+const money = n => n.toLocaleString("ko-KR") + "원";
+
+function render() {
+
+    let items = groups[cat].map((v, i) => ({
+        v,
+        i,
+        key: prefixes[cat] + (i + 1)
+    }));
+
+    if (only) {
+        items = items.filter(x => fav.includes(x.key));
+    }
+
+    if ($("sort").value === "low") {
+        items.sort((a, b) => a.v[1] - b.v[1]);
+    }
+
+    if ($("sort").value === "high") {
+        items.sort((a, b) => b.v[1] - a.v[1]);
+    }
+
+    $("category-title").textContent = cat;
+    $("count").textContent = `총 ${items.length}개 메뉴`;
+
+    $("products").innerHTML = items.map(({v, i, key}) => `
+
+        <article class="product-card">
+
+            <div class="card-top">
+                <small>
+                    ${cat === "세트메뉴"
+                        ? "TYPE " + "ABCD"[i]
+                        : "PROFILE / " + String(i + 1).padStart(2, "0")}
+                </small>
+
+                <button class="heart"
+                    data-key="${key}"
+                    aria-label="${v[0]} 최애 저장"
+                    aria-pressed="${fav.includes(key)}">
+                    ${fav.includes(key) ? "♥" : "♡"}
                 </button>
-
             </div>
 
-            <section class="menu-banner">
-                <p class="banner-caption">오늘도 맛있게 입덕 중!</p>
-                <h2>어떤 떡볶이에 입덕할래?</h2>
-                <p class="banner-description">취향에 맞는 떡볶이를 골라보세요.</p>
-            </section>
-
-            <div class="list-heading">
-                <h2>떡볶이 메뉴</h2>
-                <span>총 6개 메뉴</span>
+            <div class="food-photo"
+                style="background:${colors[i % colors.length]}">
+                <img src="img/${key}.png" alt="${v[0]}">
             </div>
 
-            <div class="product-grid">
+            <h3>${v[0]}</h3>
+            <p>${v[2]}</p>
 
-                <a href="../detail/detail.html?id=1" class="product-item">
-
-                    <div class="product-img list-img1">
-                        <span class="product-badge best">BEST</span>
-                    </div>
-
-                    <h3>오리지널 떡볶이</h3>
-                    <p class="product-description">매콤달콤한 시그니처</p>
-
-                    <div class="price-row">
-                        <span class="portion">1인분</span>
-                        <span class="price">9,000원</span>
-                    </div>
-
-                    <div class="price-row">
-                        <span class="portion">2인분</span>
-                        <span class="price">14,000원</span>
-                    </div>
-
-                </a>
-
-                <a href="../detail/detail.html?id=2" class="product-item">
-
-                    <div class="product-img list-img2">
-                        <span class="product-badge new">NEW</span>
-                    </div>
-
-                    <h3>로제 떡볶이</h3>
-                    <p class="product-description">부드럽고 꾸덕한 로제</p>
-
-                    <div class="price-row">
-                        <span class="portion">1인분</span>
-                        <span class="price">11,000원</span>
-                    </div>
-
-                    <div class="price-row">
-                        <span class="portion">2인분</span>
-                        <span class="price">16,000원</span>
-                    </div>
-
-                </a>
-
-                <a href="../detail/detail.html?id=3" class="product-item">
-
-                    <div class="product-img list-img3"></div>
-
-                    <h3>마라 떡볶이</h3>
-                    <p class="product-description">얼얼하고 중독적인 맛</p>
-
-                    <div class="price-row">
-                        <span class="portion">1인분</span>
-                        <span class="price">12,000원</span>
-                    </div>
-
-                    <div class="price-row">
-                        <span class="portion">2인분</span>
-                        <span class="price">17,000원</span>
-                    </div>
-
-                </a>
-
-                <a href="../detail/detail.html?id=4" class="product-item">
-
-                    <div class="product-img list-img4"></div>
-
-                    <h3>짜장 떡볶이</h3>
-                    <p class="product-description">달콤하고 고소한 짜장</p>
-
-                    <div class="price-row">
-                        <span class="portion">1인분</span>
-                        <span class="price">9,000원</span>
-                    </div>
-
-                    <div class="price-row">
-                        <span class="portion">2인분</span>
-                        <span class="price">14,000원</span>
-                    </div>
-
-                </a>
-
-                <a href="../detail/detail.html?id=5" class="product-item">
-
-                    <div class="product-img list-img5"></div>
-
-                    <h3>크림 떡볶이</h3>
-                    <p class="product-description">고소하고 부드러운 크림</p>
-
-                    <div class="price-row">
-                        <span class="portion">1인분</span>
-                        <span class="price">11,000원</span>
-                    </div>
-
-                    <div class="price-row">
-                        <span class="portion">2인분</span>
-                        <span class="price">16,000원</span>
-                    </div>
-
-                </a>
-
-                <a href="../detail/detail.html?id=6" class="product-item">
-
-                    <div class="product-img list-img6"></div>
-
-                    <h3>치즈 떡볶이</h3>
-                    <p class="product-description">쭉 늘어나는 풍부한 치즈</p>
-
-                    <div class="price-row">
-                        <span class="portion">1인분</span>
-                        <span class="price">10,000원</span>
-                    </div>
-
-                    <div class="price-row">
-                        <span class="portion">2인분</span>
-                        <span class="price">15,000원</span>
-                    </div>
-
-                </a>
-
+            <div class="price">
+                ${v[3] ? "1인분 " : ""}
+                ${money(v[1])}
+                ${v[3] ? "<br>2인분 " + money(v[3]) : ""}
             </div>
 
-        </main>
+            <a class="detail-link"
+                href="../detail/detail.html?id=${key}">
+                메뉴 보기 ↗
+            </a>
 
-    </div>
+        </article>
+
+    `).join("") || '<p class="empty">저장한 최애 메뉴가 없어요.</p>';
+}
+
+document.querySelectorAll("[data-cat]").forEach(b => {
+
+    b.onclick = () => {
+
+        cat = b.dataset.cat;
+
+        document.querySelectorAll("[data-cat]").forEach(x => {
+            x.classList.toggle("active", x === b);
+        });
+
+        render();
+    };
+});
+
+$("sort").onchange = render;
+
+$("favorites").onclick = () => {
+    only = !only;
+    $("favorites").setAttribute("aria-pressed", only);
+    render();
+};
+
+$("products").onclick = e => {
+
+    const b = e.target.closest("[data-key]");
+
+    if (!b) return;
+
+    const k = b.dataset.key;
+
+    fav = fav.includes(k)
+        ? fav.filter(x => x !== k)
+        : [...fav, k];
+
+    localStorage.setItem("ipdeokFavorites", JSON.stringify(fav));
+
+    render();
+};
+
+$("address").textContent =
+    localStorage.getItem("ipdeokAddress")
+    || "기본배달지를 등록해 주세요";
+
+$("address-btn").onclick = () => {
+
+    const a = prompt(
+        "배달 주소를 입력해 주세요",
+        localStorage.getItem("ipdeokAddress") || ""
+    );
+
+    if (a && a.trim()) {
+        localStorage.setItem("ipdeokAddress", a.trim());
+        $("address").textContent = a.trim();
+    }
+};
+
+if (new URLSearchParams(location.search).get("category") === "set") {
+    cat = "세트메뉴";
+
+    document.querySelectorAll("[data-cat]").forEach(button => {
+        button.classList.toggle(
+            "active",
+            button.dataset.cat === cat
+        );
+    });
+}
+
+
+
+render();
+
+document.getElementById("products").addEventListener("click", function(e) {
+
+    const photo = e.target.closest(".food-photo");
+
+    if (!photo) return;
+
+    const card = photo.closest(".product-card");
+    const link = card.querySelector(".detail-link");
+
+    if (link && link.href) {
+        window.location.href = link.href;
+    }
+
+});
+
+
+</script>
 
 </body>
 </html>
