@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입덕볶이 | 커뮤니티</title>
+    <link rel="stylesheet" href="../../CSS/style.css">
+    <link rel="stylesheet" href="CSS/community.css">
+</head>
+<body>
+
+<div class="wrap">
+
+    <header class="header">
+        <a href="../../index.html" class="logo">
+            <img src="../../img/logo.png" alt="입덕볶이">
+        </a>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+        <label for="menu-toggle" class="menu-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round">
+                <path d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </label>
+
+        <label for="menu-toggle" class="menu-overlay"></label>
+
+        <nav class="side-menu">
+            <div class="side-menu-header">
+                <h2>메뉴</h2>
+                <label for="menu-toggle" class="close-btn">✕</label>
+            </div>
+
+                  <ul class="side-menu-list">
+                <li><a href="../about/about.html">소개</a></li>
+                <li><a href="../community/community.html">커뮤니티</a></li>
+                <li><a href="../login/login.html">로그인</a></li>
+                </ul>
+    </header>
+
+    <main class="community-main">
+
+        <section class="community-banner">
+            <span>IPDEOK COMMUNITY</span>
+            <h1>우리 같이<br>입덕할래?</h1>
+            <p>떡볶이를 사랑하는 사람들의 이야기.</p>
+        </section>
+
+        <div class="community-tabs">
+            <button class="community-tab active" data-category="all">전체</button>
+            <button class="community-tab" data-category="review">먹방 후기</button>
+            <button class="community-tab" data-category="recommend">메뉴 추천</button>
+            <button class="community-tab" data-category="free">자유게시판</button>
+        </div>
+
+        <div class="community-heading">
+            <h2>입덕 이야기</h2>
+            <span>최신순</span>
+        </div>
+
+        <div class="post-list">
+
+            <article class="post-card" data-category="review">
+                <span class="post-category">먹방 후기</span>
+                <h3>오늘도 입덕 완료!</h3>
+                <p>오리지널 떡볶이에 치즈 추가했는데 너무 맛있어요. 다음에도 이 조합으로 먹으려고요!</p>
+                <div class="post-bottom">
+                    <span>떡볶이러버 · 10분 전</span>
+                    <button class="like-btn" data-count="12">♡ 12</button>
+                </div>
+            </article>
+
+            <article class="post-card" data-category="recommend">
+                <span class="post-category">메뉴 추천</span>
+                <h3>로제 떡볶이 최애 조합 추천</h3>
+                <p>로제에 중국당면 추가하면 진짜 맛있어요. 다들 꼭 드셔보세요!</p>
+                <div class="post-bottom">
+                    <span>로제덕후 · 30분 전</span>
+                    <button class="like-btn" data-count="24">♡ 24</button>
+                </div>
+            </article>
+
+            <article class="post-card" data-category="free">
+                <span class="post-category">자유게시판</span>
+                <h3>다들 최애 떡볶이가 뭐예요?</h3>
+                <p>저는 오리지널이랑 마라 중에서 매번 고민하게 되네요.</p>
+                <div class="post-bottom">
+                    <span>입덕새내기 · 1시간 전</span>
+                    <button class="like-btn" data-count="8">♡ 8</button>
+                </div>
+            </article>
+
+            <article class="post-card" data-category="review">
+                <span class="post-category">먹방 후기</span>
+                <h3>마라 떡볶이 먹어봤어요</h3>
+                <p>얼얼한 맛이 너무 좋네요. 매운 음식 좋아하는 분들께 추천합니다.</p>
+                <div class="post-bottom">
+                    <span>마라홀릭 · 2시간 전</span>
+                    <button class="like-btn" data-count="16">♡ 16</button>
+                </div>
+            </article>
+
+            <article class="post-card" data-category="recommend">
+                <span class="post-category">메뉴 추천</span>
+                <h3>맵찔이도 먹을 수 있는 메뉴!</h3>
+                <p>크림 떡볶이 순한맛 추천해요. 부드럽고 고소해서 부담 없이 먹었어요.</p>
+                <div class="post-bottom">
+                    <span>크림좋아 · 3시간 전</span>
+                    <button class="like-btn" data-count="11">♡ 11</button>
+                </div>
+            </article>
+
+        </div>
+
+        <a href="../login/login.html" class="write-btn">
+            ＋ 글쓰기
+        </a>
+
+    </main>
+
+</div>
+
+<script>
+    const tabs = document.querySelectorAll(".community-tab");
+    const posts = document.querySelectorAll(".post-card");
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+
+            tabs.forEach(item => item.classList.remove("active"));
+            tab.classList.add("active");
+
+            const category = tab.dataset.category;
+
+            posts.forEach(post => {
+                post.style.display =
+                    category === "all" || post.dataset.category === category
+                    ? "" : "none";
+            });
+
+        });
+    });
+
+    document.querySelectorAll(".like-btn").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const liked = button.classList.toggle("liked");
+            const count = Number(button.dataset.count);
+
+            button.textContent = liked
+                ? "♥ " + (count + 1)
+                : "♡ " + count;
+
+        });
+
+    });
+</script>
+
+</body>
+</html>

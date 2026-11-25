@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입덕볶이 | 로그인</title>
+    <link rel="stylesheet" href="../../CSS/style.css">
+    <link rel="stylesheet" href="CSS/login.css">
+</head>
+<body>
+
+<div class="wrap">
+
+    <header class="header">
+        <a href="../../index.html" class="logo">
+            <img src="../../img/logo.png" alt="입덕볶이">
+        </a>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+        <label for="menu-toggle" class="menu-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round">
+                <path d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </label>
+
+        <label for="menu-toggle" class="menu-overlay"></label>
+
+        <nav class="side-menu">
+            <div class="side-menu-header">
+                <h2>메뉴</h2>
+                <label for="menu-toggle" class="close-btn">✕</label>
+            </div>
+
+                <ul class="side-menu-list">
+                <li><a href="../about/about.html">소개</a></li>
+                <li><a href="../community/community.html">커뮤니티</a></li>
+                <li><a href="../login/login.html">로그인</a></li>
+                </ul>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="login-main">
+
+        <section class="login-heading">
+            <img src="../../img/logo.png" alt="입덕볶이">
+            <span>WELCOME BACK!</span>
+            <h1>오늘도 입덕할 준비<span>?</span></h1>
+            <p>로그인하고 입덕볶이의 다양한 혜택을 만나보세요.</p>
+        </section>
+
+        <form class="login-form" id="login-form">
+
+            <label for="user-id">아이디</label>
+            <input type="text" id="user-id"
+                placeholder="아이디를 입력해 주세요"
+                autocomplete="username" required>
+
+            <label for="user-password">비밀번호</label>
+
+            <div class="password-box">
+                <input type="password" id="user-password"
+                    placeholder="비밀번호를 입력해 주세요"
+                    autocomplete="current-password" required>
+
+                <button type="button" id="password-toggle">
+                    보기
+                </button>
+            </div>
+
+            <div class="login-options">
+                <label>
+                    <input type="checkbox">
+                    아이디 기억하기
+                </label>
+            </div>
+
+            <button type="submit" class="login-btn">
+                로그인
+            </button>
+
+        </form>
+
+        <div class="account-links">
+            <button type="button" class="demo-btn">아이디 찾기</button>
+            <span></span>
+            <button type="button" class="demo-btn">비밀번호 찾기</button>
+            <span></span>
+            <button type="button" class="demo-btn">회원가입</button>
+        </div>
+
+        <div class="social-divider">
+            <span></span>
+            <p>간편 로그인</p>
+            <span></span>
+        </div>
+
+        <div class="social-login">
+
+            <button class="kakao-btn demo-btn" type="button">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 3C6 3 2 6.5 2 10.5c0 2.6 1.8 4.9 4.6 6.2L5.5 21l5-3.2c.5.1 1 .2 1.5.2 6 0 10-3.5 10-7.5S18 3 12 3z"/>
+                </svg>
+                카카오로 시작하기
+            </button>
+
+            <button class="naver-btn demo-btn" type="button">
+                <strong>N</strong>
+                네이버로 시작하기
+            </button>
+
+        </div>
+
+        <section class="login-event">
+            <span>WELCOME COUPON</span>
+            <h2>첫 입덕을 환영해!</h2>
+            <p>신규 회원 5,000원 할인 혜택</p>
+            <button class="demo-btn" type="button">회원가입하기 ↗</button>
+        </section>
+
+    </main>
+
+</div>
+
+<script>
+    const password = document.querySelector("#user-password");
+    const toggle = document.querySelector("#password-toggle");
+
+    toggle.addEventListener("click", () => {
+
+        const hidden = password.type === "password";
+
+        password.type = hidden ? "text" : "password";
+        toggle.textContent = hidden ? "숨기기" : "보기";
+
+    });
+
+    document.querySelector("#login-form").addEventListener("submit", event => {
+
+        event.preventDefault();
+
+        alert("로그인 화면 체험이 완료되었습니다.");
+        location.href = "../../index.html";
+
+    });
+
+    document.querySelectorAll(".demo-btn").forEach(button => {
+
+        button.addEventListener("click", () => {
+            alert("현재 준비 중인 기능입니다.");
+        });
+
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+
+.community-main {
+    padding: 0 20px 50px;
+}
+
+.community-banner {
+    margin-top: 20px;
+    padding: 32px 24px;
+    border-radius: 16px;
+    background-color: #EA4028;
+    color: #FCF2E3;
+}
+
+.community-banner span {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.community-banner h1 {
+    margin-top: 16px;
+    font-size: 38px;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -2px;
+}
+
+.community-banner p {
+    margin-top: 16px;
+    font-size: 13px;
+}
+
+.community-tabs {
+    display: flex;
+    gap: 8px;
+    margin-top: 26px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.community-tab {
+    flex-shrink: 0;
+    padding: 9px 13px;
+    border: 1px solid #D9D9D9;
+    border-radius: 30px;
+    font-size: 12px;
+    color: #858585;
+    white-space: nowrap;
+}
+
+.community-tab.active {
+    background-color: #EA4028;
+    border-color: #EA4028;
+    color: #FFFFFF;
+}
+
+.community-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 36px;
+    margin-bottom: 16px;
+}
+
+.community-heading h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #392520;
+}
+
+.community-heading > span {
+    font-size: 12px;
+    color: #858585;
+}
+
+.post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.post-card {
+    padding: 20px;
+    border: 1px solid #E7E7E7;
+    border-radius: 16px;
+}
+
+.post-category {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 6px;
+    background-color: #FCF2E3;
+    color: #EA4028;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.post-card h3 {
+    margin-top: 12px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #392520;
+}
+
+.post-card p {
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #666666;
+}
+
+.post-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 14px;
+    border-top: 1px solid #E7E7E7;
+}
+
+.post-bottom > span {
+    font-size: 11px;
+    color: #858585;
+}
+
+.like-btn {
+    font-size: 14px;
+    color: #858585;
+}
+
+.like-btn.liked {
+    color: #EA4028;
+}
+
+.write-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55px;
+    margin-top: 30px;
+    border-radius: 12px;
+    background-color: #EA4028;
+    color: #FFFFFF;
+    font-size: 17px;
+    font-weight: 600;
+}

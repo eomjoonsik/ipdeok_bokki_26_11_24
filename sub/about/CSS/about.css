@@ -1,0 +1,130 @@
+
+.about-main {
+    padding: 0;
+}
+
+.about-hero {
+    padding: 50px 24px 40px;
+    background-color: #EA4028;
+    color: #FCF2E3;
+}
+
+.about-hero > span {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.about-hero h1 {
+    margin-top: 24px;
+    font-size: 48px;
+    line-height: 1.2;
+    font-weight: 900;
+    letter-spacing: -3px;
+}
+
+.about-hero h1 span {
+    color: #FFBE70;
+}
+
+.about-hero p {
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.about-hero img {
+    display: block;
+    width: 65%;
+    max-width: 230px;
+    margin: 40px auto 0;
+    object-fit: contain;
+}
+
+.about-story {
+    padding: 60px 24px;
+}
+
+.about-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #EA4028;
+}
+
+.about-story h2,
+.about-values h2 {
+    margin-top: 14px;
+    font-size: 28px;
+    line-height: 1.4;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: #392520;
+}
+
+.about-story p {
+    margin-top: 24px;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #666666;
+}
+
+.about-values {
+    padding: 50px 20px;
+    background-color: #FCF2E3;
+}
+
+.about-values h2 {
+    margin-bottom: 30px;
+}
+
+.value-card {
+    margin-top: 14px;
+    padding: 24px;
+    background-color: #FFFFFF;
+    border-radius: 16px;
+}
+
+.value-card > span {
+    font-size: 14px;
+    font-weight: 800;
+    color: #EA4028;
+}
+
+.value-card h3 {
+    margin-top: 8px;
+    font-size: 22px;
+    color: #392520;
+}
+
+.value-card p {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666666;
+}
+
+.about-bottom {
+    padding: 50px 24px;
+    background-color: #392520;
+    color: #FCF2E3;
+    text-align: center;
+}
+
+.about-bottom h2 {
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.about-bottom a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55px;
+    margin-top: 30px;
+    border-radius: 12px;
+    background-color: #EA4028;
+    color: #FFFFFF;
+    font-weight: 600;
+}
