@@ -6,6 +6,7 @@
     <title>입덕볶이 | 주문 완료</title>
     <link rel="stylesheet" href="../../CSS/style.css">
     <link rel="stylesheet" href="CSS/payment_finish.css">
+<script src="../../JS/auth.js"></script>
 </head>
 <body>
 
@@ -82,7 +83,8 @@
 
         </section>
 
-        <div id="order-content">
+        <section id="new-stamp" hidden style="margin:24px 0;padding:20px;text-align:center;background:#FFD45C;border:2px solid #392520"><div id="stamp-choice" hidden></div><div id="stamp-result"><h2>NEW STAMP!</h2><img id="new-stamp-img" alt="획득한 스탬프" style="width:150px;display:block;margin:12px auto"><p id="new-stamp-text"></p></div><a href="../collection/collection.html" style="display:block;background:#EA4028;color:white;padding:14px;margin-top:12px">나의 컬렉션 확인하기 ↗</a></section>
+<div id="order-content">
 
             <section class="delivery-time">
 
@@ -165,7 +167,15 @@ try {
 }
 
 if (order && Array.isArray(order.products)) {
+    if(order.collection && order.memberId === Auth.user()?.id){
+      const show=c=>{ $("new-stamp").hidden=false; $("stamp-choice").hidden=true; $("stamp-result").hidden=false; $("new-stamp-img").src="../collection/img/stamp_"+c.card.kind+".png"; $("new-stamp-text").textContent=c.reward?"5장 달성! BIG COUPON 지급 완료!":c.card.name+" 스탬프 획득!"; };
+      const existing=Collection.read().cards.find(c=>c.id===order.number);
+      if(existing)show({card:existing,reward:existing.reward});
+      else if(order.collection.pending){$("new-stamp").hidden=false;$("stamp-result").hidden=true;$("stamp-choice").hidden=false;Collection.chooser(order.number,$("stamp-choice"),show);}
+      else if(order.collection.card)show(order.collection);
+    }
 
+    if(order.memberName) document.querySelector(".order-ticket p").textContent = order.memberName + "님, 오늘의 최애가 곧 찾아갑니다.";
     $("order-number").textContent = order.number;
 
     $("order-time").textContent = order.time;

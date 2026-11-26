@@ -1,0 +1,36 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>입덕볶이 | 나의 컬렉션</title><link rel="stylesheet" href="../../CSS/style.css"><link rel="stylesheet" href="CSS/collection.css"><script src="../../JS/auth.js"></script></head><body><div class="wrap"><header class="header">
+
+        <a href="../../index.html" class="logo">
+            <img src="../../img/logo.png" alt="입덕볶이">
+        </a>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+        <label for="menu-toggle" class="menu-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round">
+                <path d="M4 6h16"/>
+                <path d="M4 12h16"/>
+                <path d="M4 18h16"/>
+            </svg>
+        </label>
+
+        <label for="menu-toggle" class="menu-overlay"></label>
+
+        <nav class="side-menu">
+
+            <div class="side-menu-header">
+                <h2>메뉴</h2>
+                <label for="menu-toggle" class="close-btn">✕</label>
+            </div>
+
+            <ul class="side-menu-list">
+                <li><a href="../about/about.html">소개</a></li>
+                <li><a href="../community/community.html">커뮤니티</a></li>
+                <li><a href="../login/login.html">로그인</a></li>
+            </ul>
+
+        </nav>
+
+    </header><main class="collection-main"><small>IPDEOK COLLECTION / MEMBERS ONLY</small><h1>나의 입덕 기록.</h1><p id="intro"></p><section id="guest" hidden><button id="login">로그인하고 수집하기 ↗</button></section><div id="member" hidden><section class="reward"><img src="img/stamp_big_coupon.png" alt="BIG COUPON"><div><h2 id="progress"></h2><p id="remaining"></p><progress id="bar" max="5" value="0"></progress><p id="coupons"></p></div></section><div id="pending-stamps"></div><h2>MY STAMPS <span id="count"></span></h2><div id="cards"></div><a class="collection-cta" href="../lists/lists.html">다음 최애 만나러 가기 ↗</a></div></main></div><script src="JS/collection.js"></script></body></html>

@@ -224,3 +224,7 @@
     color: #FFFFFF;
     font-size: 13px;
 }
+
+#signup-fields[hidden]{display:none!important;}
+#signup-fields label{display:block;margin-bottom:8px;font-size:14px;font-weight:600;}
+#signup-fields input{width:100%;height:54px;padding:0 16px;border:1px solid #D9D9D9;border-radius:10px;margin-bottom:22px;}

@@ -188,8 +188,9 @@ function updateTotal() {
         : 0;
 
     const conditions = [
-        menuTotal >= 20000,
-        menuTotal >= 50000
+        !!Auth.user() && !Auth.get("welcomeUsed") && Date.now()-Auth.user().joined < 30*86400000 && menuTotal >= 20000,
+        !!Auth.user() && menuTotal >= 50000,
+        !!Auth.user() && Collection.available() > 0 && menuTotal >= 5000
     ];
 
     if (
@@ -223,7 +224,13 @@ function updateTotal() {
                 .appendChild(status);
         }
 
-        if (selectedCoupon === index) {
+        if (!Auth.user()) {
+            status.textContent = "회원 전용 · 로그인 필요";
+        } else if (index === 0 && (Auth.get("welcomeUsed") || Date.now()-Auth.user().joined >= 30*86400000)) {
+            status.textContent = "사용 완료 또는 기간 만료";
+        } else if (index === 2 && !Collection.available()) {
+            status.textContent = "5회 주문 달성 시 지급";
+        } else if (selectedCoupon === index) {
 
             status.textContent = "적용 완료";
 
@@ -235,7 +242,7 @@ function updateTotal() {
 
             const required = index === 0
                 ? 20000
-                : 50000;
+                : index === 1 ? 50000 : 5000;
 
             status.textContent =
                 money(required - menuTotal) +
@@ -245,7 +252,7 @@ function updateTotal() {
 
     let discount = 0;
 
-    if (selectedCoupon === 0) {
+    if (selectedCoupon === 0 || selectedCoupon === 2) {
         discount = 5000;
     }
 
@@ -278,9 +285,11 @@ coupons.forEach((coupon, index) => {
 
         const required = index === 0
             ? 20000
-            : 50000;
+            : index === 1 ? 50000 : 5000;
 
-        if (menuTotal < required) return;
+        if (!Auth.user()) { if(confirm("회원 쿠폰을 사용하려면 로그인해 주세요.")) Auth.login(); return; }
+        if (index === 0 && (Auth.get("welcomeUsed") || Date.now()-Auth.user().joined >= 30*86400000)) return;
+        if (menuTotal < required || (index === 2 && !Collection.available())) return;
 
         selectedCoupon = selectedCoupon === index
             ? -1
@@ -331,14 +340,14 @@ methods.forEach(button => {
 });
 
 $("delivery-address").value =
-    localStorage.getItem("ipdeokAddress") || "";
+    (Auth.user() ? Auth.get("ipdeokAddress") : "") || "";
 
 $("delivery-detail").value =
-    localStorage.getItem("ipdeokAddressDetail") || "";
+    (Auth.user() ? Auth.get("ipdeokAddressDetail") : "") || "";
 
 $("delivery-address").onchange = () => {
 
-    localStorage.setItem(
+    if (Auth.user()) Auth.save(
         "ipdeokAddress",
         $("delivery-address").value.trim()
     );
@@ -346,7 +355,7 @@ $("delivery-address").onchange = () => {
 
 $("delivery-detail").onchange = () => {
 
-    localStorage.setItem(
+    if (Auth.user()) Auth.save(
         "ipdeokAddressDetail",
         $("delivery-detail").value.trim()
     );
@@ -400,6 +409,7 @@ $("order-btn").onclick = () => {
     }
 
     const order = {
+        memberName: Auth.user()?.name || "",
         number: String(Date.now()),
         products: products,
         address: address,
@@ -410,13 +420,17 @@ $("order-btn").onclick = () => {
         time: "40~50분"
     };
 
+    updateTotal();
+    order.total = finalPrice;
+    order.memberId = Auth.user()?.id || null;
+    order.collection = Collection.award(order, selectedCoupon === 2);
+    $("order-btn").disabled = true;
     sessionStorage.setItem(
         "ipdeokOrder",
         JSON.stringify(order)
     );
 
-    localStorage.setItem("ipdeokAddress", address);
-    localStorage.setItem("ipdeokAddressDetail", detail);
+    if (Auth.user()) { Auth.save("ipdeokAddress", address); Auth.save("ipdeokAddressDetail", detail); if(selectedCoupon===0) Auth.save("welcomeUsed","1"); }
 
     localStorage.removeItem("ipdeokCart");
 

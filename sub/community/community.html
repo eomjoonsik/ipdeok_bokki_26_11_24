@@ -7,6 +7,7 @@
     <title>입덕볶이 | 커뮤니티</title>
     <link rel="stylesheet" href="../../CSS/style.css">
     <link rel="stylesheet" href="CSS/community.css">
+<script src="../../JS/auth.js"></script>
 </head>
 <body>
 
@@ -40,6 +41,7 @@
                 <li><a href="../community/community.html">커뮤니티</a></li>
                 <li><a href="../login/login.html">로그인</a></li>
                 </ul>
+        </nav>
     </header>
 
     <main class="community-main">
@@ -116,50 +118,19 @@
 
         </div>
 
-        <a href="../login/login.html" class="write-btn">
-            ＋ 글쓰기
-        </a>
+        <button type="button" id="write-btn" class="write-btn">＋ 글쓰기</button>
+        <form id="post-form" hidden>
+          <h2>입덕 이야기 작성</h2>
+          <label>카테고리<select id="post-category"><option value="review">먹방 후기</option><option value="recommend">메뉴 추천</option><option value="free">자유게시판</option></select></label>
+          <label>제목<input id="post-title" required maxlength="80"></label>
+          <label>내용<textarea id="post-body" required maxlength="2000" rows="5"></textarea></label>
+          <div class="post-actions"><button type="button" id="cancel-post">취소</button><button type="submit">등록하기</button></div>
+        </form>
 
     </main>
 
 </div>
 
-<script>
-    const tabs = document.querySelectorAll(".community-tab");
-    const posts = document.querySelectorAll(".post-card");
-
-    tabs.forEach(tab => {
-        tab.addEventListener("click", () => {
-
-            tabs.forEach(item => item.classList.remove("active"));
-            tab.classList.add("active");
-
-            const category = tab.dataset.category;
-
-            posts.forEach(post => {
-                post.style.display =
-                    category === "all" || post.dataset.category === category
-                    ? "" : "none";
-            });
-
-        });
-    });
-
-    document.querySelectorAll(".like-btn").forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            const liked = button.classList.toggle("liked");
-            const count = Number(button.dataset.count);
-
-            button.textContent = liked
-                ? "♥ " + (count + 1)
-                : "♡ " + count;
-
-        });
-
-    });
-</script>
-
+<script src="JS/community.js"></script>
 </body>
 </html>

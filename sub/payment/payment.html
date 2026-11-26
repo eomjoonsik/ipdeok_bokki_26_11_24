@@ -6,6 +6,7 @@
     <title>입덕볶이 | 장바구니 및 결제</title>
     <link rel="stylesheet" href="../../CSS/style.css">
     <link rel="stylesheet" href="CSS/payment.css">
+<script src="../../JS/auth.js"></script>
 </head>
 <body>
 
@@ -71,6 +72,8 @@
         <section class="payment-section">
 
             <h2 class="payment-title">배달 정보</h2>
+<p id="member-payment" style="font-size:13px;margin-bottom:12px"></p>
+<script>document.getElementById("member-payment").textContent=Auth.user()?Auth.user().name+"님 · 저장된 배달 정보 사용":"비회원 주문 · 배달 정보를 입력해 주세요.";</script>
 
             <div class="delivery-fields">
 
@@ -143,10 +146,12 @@
 
                 </div>
 
+                <div class="coupon-card">
+                    <div class="coupon-img" style="background:url('../collection/img/stamp_big_coupon.png') center/contain no-repeat"></div>
+                    <div class="coupon-info"><h3>BIG COUPON</h3><p>5회 주문 달성 · 5,000원 할인</p><p>보유 쿠폰 1장씩 사용</p><span>중복 사용 불가능</span></div>
+                </div>
             </div>
-
         </section>
-
         <section class="payment-section method-section">
 
             <h2 class="payment-title">결제 수단</h2>

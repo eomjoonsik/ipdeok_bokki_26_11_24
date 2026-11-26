@@ -6,6 +6,7 @@
     <title>입덕볶이 | 메뉴</title>
     <link rel="stylesheet" href="../../CSS/style.css">
     <link rel="stylesheet" href="CSS/lists.css">
+<script src="../../JS/auth.js"></script>
 </head>
 <body>
 
@@ -156,7 +157,7 @@ let only = false;
 let fav = [];
 
 try {
-    fav = JSON.parse(localStorage.getItem("ipdeokFavorites") || "[]");
+    fav = JSON.parse(Auth.get("ipdeokFavorites") || "[]");
 
     if (!Array.isArray(fav)) {
         fav = [];
@@ -249,6 +250,7 @@ document.querySelectorAll("[data-cat]").forEach(b => {
 $("sort").onchange = render;
 
 $("favorites").onclick = () => {
+    if (!Auth.user()) { if(confirm("로그인 후 최애를 저장할 수 있어요. 로그인할까요?")) Auth.login(); return; }
     only = !only;
     $("favorites").setAttribute("aria-pressed", only);
     render();
@@ -260,30 +262,31 @@ $("products").onclick = e => {
 
     if (!b) return;
 
+    if (!Auth.user()) { if(confirm("로그인 후 최애를 저장할 수 있어요. 로그인할까요?")) Auth.login(); return; }
     const k = b.dataset.key;
 
     fav = fav.includes(k)
         ? fav.filter(x => x !== k)
         : [...fav, k];
 
-    localStorage.setItem("ipdeokFavorites", JSON.stringify(fav));
+    Auth.save("ipdeokFavorites", JSON.stringify(fav));
 
     render();
 };
 
 $("address").textContent =
-    localStorage.getItem("ipdeokAddress")
+    Auth.get("ipdeokAddress")
     || "기본배달지를 등록해 주세요";
 
 $("address-btn").onclick = () => {
 
     const a = prompt(
         "배달 주소를 입력해 주세요",
-        localStorage.getItem("ipdeokAddress") || ""
+        Auth.get("ipdeokAddress") || ""
     );
 
     if (a && a.trim()) {
-        localStorage.setItem("ipdeokAddress", a.trim());
+        Auth.save("ipdeokAddress", a.trim());
         $("address").textContent = a.trim();
     }
 };

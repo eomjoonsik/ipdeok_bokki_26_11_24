@@ -1,0 +1,15 @@
+const $=id=>document.getElementById(id);
+const list=document.querySelector('.post-list'), form=$('post-form'), tabs=document.querySelectorAll('.community-tab');
+const categories={review:'먹방 후기',recommend:'메뉴 추천',free:'자유게시판'};
+const storage='ipdeokCommunityPosts';
+let posts=[];try{posts=JSON.parse(localStorage.getItem(storage)||'[]');if(!Array.isArray(posts))posts=[];}catch{}
+let active='all',editing=null;
+function filter(){list.querySelectorAll('.post-card').forEach(p=>p.hidden=active!=='all'&&p.dataset.category!==active);}
+function save(){localStorage.setItem(storage,JSON.stringify(posts));}
+function element(tag,cls,txt){const e=document.createElement(tag);e.className=cls;e.textContent=txt;return e;}
+function render(){list.querySelectorAll('[data-created]').forEach(e=>e.remove());const fragment=document.createDocumentFragment();for(const p of posts){const a=element('article','post-card','');a.dataset.created='1';a.dataset.category=p.category;a.append(element('span','post-category',categories[p.category]||'자유게시판'),element('h3','',p.title),element('p','',p.body));const bottom=element('div','post-bottom','');bottom.append(element('span','',p.author+' · '+new Date(p.date).toLocaleDateString('ko-KR')));a.append(bottom);if(Auth.user()?.id===p.owner){const actions=element('div','own-actions','');const edit=element('button','','수정'),del=element('button','','삭제');edit.onclick=()=>open(p);del.onclick=()=>{if(Auth.user()?.id!==p.owner||!confirm('게시글을 삭제할까요?'))return;posts=posts.filter(x=>x.id!==p.id);save();render();};actions.append(edit,del);a.append(actions);}fragment.append(a);}list.prepend(fragment);filter();}
+function open(p=null){if(!Auth.user()){if(confirm('로그인 후 글을 작성할 수 있어요. 로그인할까요?'))Auth.login();return;}editing=p?.id||null;form.reset();if(p){$('post-category').value=p.category;$('post-title').value=p.title;$('post-body').value=p.body;}form.hidden=false;form.scrollIntoView({block:'nearest'});$('post-title').focus();}
+$('write-btn').onclick=()=>open();$('cancel-post').onclick=()=>{form.hidden=true;editing=null;};
+form.onsubmit=e=>{e.preventDefault();const u=Auth.user();if(!u){Auth.login();return;}const title=$('post-title').value.trim(),body=$('post-body').value.trim(),category=$('post-category').value;if(!title||!body)return;const old=posts.find(p=>p.id===editing);if(editing){if(!old||old.owner!==u.id)return;Object.assign(old,{title,body,category});}else{posts.unshift({id:Date.now().toString(36)+Math.random().toString(36).slice(2),owner:u.id,author:u.name,title,body,category,date:new Date().toISOString()});}save();form.hidden=true;editing=null;active=category;tabs.forEach(t=>t.classList.toggle('active',t.dataset.category===active));render();};
+tabs.forEach(t=>t.onclick=()=>{active=t.dataset.category;tabs.forEach(x=>x.classList.toggle('active',x===t));filter();});
+list.addEventListener('click',e=>{const b=e.target.closest('.like-btn');if(!b)return;const liked=b.classList.toggle('liked');b.textContent=(liked?'♥ ':'♡ ')+(Number(b.dataset.count)+(liked?1:0));});render();

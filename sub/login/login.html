@@ -7,6 +7,7 @@
     <title>입덕볶이 | 로그인</title>
     <link rel="stylesheet" href="../../CSS/style.css">
     <link rel="stylesheet" href="CSS/login.css">
+<script src="../../JS/auth.js"></script>
 </head>
 <body>
 
@@ -40,11 +41,11 @@
                 <li><a href="../community/community.html">커뮤니티</a></li>
                 <li><a href="../login/login.html">로그인</a></li>
                 </ul>
-            </ul>
         </nav>
     </header>
 
     <main class="login-main">
+<p style="font-size:12px;color:#786456">체험용 계정만 사용해 주세요. 실제 개인정보 및 비밀번호 입력 금지.</p>
 
         <section class="login-heading">
             <img src="../../img/logo.png" alt="입덕볶이">
@@ -55,6 +56,7 @@
 
         <form class="login-form" id="login-form">
 
+            <div id="signup-fields" hidden><label for="user-name">이름</label><input id="user-name" placeholder="테스트용 이름" maxlength="20"></div>
             <label for="user-id">아이디</label>
             <input type="text" id="user-id"
                 placeholder="아이디를 입력해 주세요"
@@ -74,7 +76,7 @@
 
             <div class="login-options">
                 <label>
-                    <input type="checkbox">
+                    <input type="checkbox" id="remember-id">
                     아이디 기억하기
                 </label>
             </div>
@@ -90,7 +92,7 @@
             <span></span>
             <button type="button" class="demo-btn">비밀번호 찾기</button>
             <span></span>
-            <button type="button" class="demo-btn">회원가입</button>
+            <button type="button" class="signup-btn">회원가입</button>
         </div>
 
         <div class="social-divider">
@@ -119,7 +121,7 @@
             <span>WELCOME COUPON</span>
             <h2>첫 입덕을 환영해!</h2>
             <p>신규 회원 5,000원 할인 혜택</p>
-            <button class="demo-btn" type="button">회원가입하기 ↗</button>
+            <button class="signup-btn" type="button">회원가입하기 ↗</button>
         </section>
 
     </main>
@@ -127,35 +129,37 @@
 </div>
 
 <script>
-    const password = document.querySelector("#user-password");
-    const toggle = document.querySelector("#password-toggle");
-
-    toggle.addEventListener("click", () => {
-
-        const hidden = password.type === "password";
-
-        password.type = hidden ? "text" : "password";
-        toggle.textContent = hidden ? "숨기기" : "보기";
-
-    });
-
-    document.querySelector("#login-form").addEventListener("submit", event => {
-
-        event.preventDefault();
-
-        alert("로그인 화면 체험이 완료되었습니다.");
-        location.href = "../../index.html";
-
-    });
-
-    document.querySelectorAll(".demo-btn").forEach(button => {
-
-        button.addEventListener("click", () => {
-            alert("현재 준비 중인 기능입니다.");
-        });
-
-    });
+const password = document.querySelector('#user-password');
+const toggle = document.querySelector('#password-toggle');
+const idInput = document.querySelector('#user-id');
+const nameInput = document.querySelector('#user-name');
+let signup = false;
+idInput.value = localStorage.getItem('ipdeokRememberId') || '';
+document.querySelector('#remember-id').checked = !!idInput.value;
+toggle.onclick = () => { password.type = password.type === 'password' ? 'text' : 'password'; toggle.textContent = password.type === 'password' ? '보기' : '숨기기'; };
+document.querySelectorAll('.signup-btn').forEach(b => b.onclick = () => {
+ signup = !signup;
+ document.querySelector('#signup-fields').hidden = !signup;
+ nameInput.required = signup;
+ document.querySelector('.login-btn').textContent = signup ? '회원가입 완료' : '로그인';
+ document.querySelector('.login-heading h1').textContent = signup ? '첫 입덕을 환영해!' : '오늘도 입덕할 준비?';
+ document.querySelectorAll('.signup-btn').forEach(x => x.textContent = signup ? '로그인으로 돌아가기' : '회원가입');
+});
+document.querySelector('#login-form').onsubmit = e => {
+ e.preventDefault();
+ const id = idInput.value.trim(); const pw = password.value; const users = Auth.users();
+ if (!id || !pw) return alert('아이디와 비밀번호를 입력해 주세요.');
+ if (signup) {
+  if (!nameInput.value.trim()) return alert('이름을 입력해 주세요.');
+  if (users.some(u => u.id === id)) return alert('이미 가입된 아이디입니다.');
+  users.push({id, name:nameInput.value.trim(), password:pw, joined:Date.now()});
+  localStorage.setItem('ipdeokUsers', JSON.stringify(users));
+ } else if (!users.some(u => u.id === id && u.password === pw)) return alert('아이디 또는 비밀번호를 확인해 주세요.');
+ localStorage.setItem('ipdeokUser',id);
+ if(document.querySelector('#remember-id').checked) localStorage.setItem('ipdeokRememberId',id); else localStorage.removeItem('ipdeokRememberId');
+ const back = sessionStorage.getItem('ipdeokReturn'); sessionStorage.removeItem('ipdeokReturn');
+ location.href = back && back.startsWith(Auth.root.href) ? back : '../../index.html';
+};
+document.querySelectorAll('.demo-btn').forEach(b => b.onclick = () => alert('현재 준비 중인 기능입니다.'));
 </script>
-
-</body>
-</html>
+</body></html>
