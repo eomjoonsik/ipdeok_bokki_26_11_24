@@ -510,3 +510,129 @@ body:has(.menu-toggle:checked) {
 .event-img {
     background-color: transparent;
 }
+
+/* 상단 로그인 및 MY 버튼 */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+}
+
+.header-account {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    min-height: 34px;
+    padding: 6px 12px;
+    border: 1.5px solid #EA4028;
+    border-radius: 6px;
+    color: #EA4028;
+    background-color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.header-account:hover {
+    background-color: #EA4028;
+    color: #FFFFFF;
+}
+
+.header-actions .menu-btn {
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+
+/* 메인 회원 혜택 배너 */
+
+.membership-banner {
+    margin: 0;
+    padding: 22px 20px;
+    background-color: #FCF2E3;
+    border-top: 1px solid #392520;
+    border-bottom: 1px solid #392520;
+    color: #392520;
+}
+
+.membership-banner small {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #EA4028;
+}
+
+.membership-banner h2 {
+    margin-bottom: 6px;
+    font-size: 23px;
+    font-weight: 800;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.membership-banner p {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.membership-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 42px;
+    margin-top: 16px;
+    padding: 10px;
+    background-color: #EA4028;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 6px;
+}
+
+
+/* 회원 스탬프 적립 현황 */
+
+.membership-progress {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.membership-progress span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    max-height: 55px;
+    border: 1.5px dashed #CBBDAA;
+    border-radius: 8px;
+    background-color: #FFF9EF;
+    color: #D8CDBF;
+    font-size: 24px;
+}
+
+.membership-progress span.filled {
+    border: 1.5px solid #EA4028;
+    background-color: #EA4028;
+    color: #FFFFFF;
+}
+
+.membership-status {
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #392520;
+}
+
+.header .logo img {
+    width: 120px;
+    max-height: 52px;
+    object-fit: contain;
+}
